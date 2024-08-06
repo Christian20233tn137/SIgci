@@ -59,6 +59,40 @@ public class UserDao {
         return u;
     }
 
+    public User getOneByEmail(String correo){
+        User u = new User();
+        //Los simbolos ? son para evitar la inyección de código SQL
+        String query = "select * from usuario where email = ?";
+
+        try{
+            //Conectarme a la base de datos
+            Connection con = getConnection();
+            //Me prepara la consulta para ser ejecutada
+            PreparedStatement ps = con.prepareStatement(query);
+            //Voy a definir los parametros del query (los "?")
+            ps.setString(1 , correo);
+            //Ejecutar la consulta
+            ResultSet rs = ps.executeQuery();
+            //Obtener la información del ResultSet
+            if(rs.next()){
+                //Que el usuario si exite en la base de datos
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return u;
+    }
+
 
     public boolean insert(User user) {
         boolean flag = false;
@@ -265,6 +299,20 @@ public class UserDao {
             return flag;
     }
 
+    public boolean updateCode(String correo, String code) {
+        boolean flag = false;
+        String query = "update usuario set cody = ? where email = ?";
+        try (Connection con = DatabaseConnectionManager.getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, code);
+            ps.setString(2, correo);
+            flag = ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
     public boolean delete(int id_usuario) throws SQLException{
         boolean flag;
         String sql = "update usuario set estado_usuario = 0 where id_usuario = ? ";
@@ -317,5 +365,17 @@ public class UserDao {
             e.printStackTrace();
         }
         return usuario;
+    }
+
+    public boolean resetPassword(String correo, String newPassword, String codigo) throws SQLException {
+        String sql = "UPDATE usuarios SET password = ? WHERE email = ? AND cody = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newPassword);
+            stmt.setString(2, correo);
+            stmt.setString(3, codigo);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        }
     }
 }

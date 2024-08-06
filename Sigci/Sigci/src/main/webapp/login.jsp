@@ -37,6 +37,7 @@
         <% } %>
 
     </form>
+    <a href="recovery.jsp">Olvidé mi contraseña</a>
 </div>
 
 <footer class="logo">
