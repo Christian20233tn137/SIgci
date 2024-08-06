@@ -78,8 +78,47 @@
         <td><%=u.getFecha_creacion()%></td>
         <td><%=u.getDivisionNombre()%></td>
         <td><%= u.getEstado_usuario() == 1 ? "Habilitado" : "Deshabilitado" %></td>
-        <td><a href="updateUser?id_usuario=<%=u.getId_usuario()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
-        <td><a href="borrarUsuario?id_usuario=<%=u.getId_usuario()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
+        <td><a href="updateUser?id_usuario=<%=u.getId_usuario()%>">
+
+            <button class="styled-button"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                                width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
+                                                preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                   fill="#2D882D" stroke="none">
+                    <path d="M2330 5109 c-604 -57 -1174 -329 -1596 -761 -168 -171 -270 -306
+       -393 -520 -371 -644 -442 -1421 -194 -2113 130 -363 322 -673 587 -943 503
+       -515 1208 -797 1921 -768 655 26 1246 281 1706 736 153 152 189 201 189 257
+       l0 46 -242 244 c-319 320 -317 319 -450 169 -224 -253 -467 -416 -765 -516
+       -289 -96 -631 -111 -928 -39 -811 197 -1362 948 -1304 1777 65 938 881 1647
+       1819 1582 241 -17 408 -60 615 -160 153 -74 271 -153 420 -282 5 -5 -91 -109
+       -237 -256 -135 -136 -253 -261 -262 -279 -22 -43 -20 -109 5 -163 25 -56 53
+       -86 101 -111 36 -18 70 -19 835 -19 750 0 800 2 838 19 51 23 101 79 114 128
+       7 25 11 302 11 809 0 864 1 847 -67 903 -41 33 -111 61 -155 61 -63 0 -103
+       -31 -333 -261 -127 -126 -234 -229 -238 -229 -4 0 -52 38 -107 84 -533 448
+       -1221 669 -1890 605z"/>
+                </g>
+            </svg></button>
+        </a></td> <!-- Funcionalidad de actualizar -->
+        <td><a href="borrarUsuario?id_usuario=<%=u.getId_usuario()%>">
+            <button class="styled-button1"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                                 width="20.000000pt" height="20.000000pt" viewBox="0 0 225.000000 225.000000"
+                                                 preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
+                   fill="#C00000" stroke="none">
+                    <path d="M978 2240 c-167 -20 -373 -103 -514 -208 -616 -459 -616 -1354 0
+       -1814 384 -286 938 -286 1322 0 616 459 616 1354 0 1814 -225 168 -513 242
+       -808 208z m342 -415 c70 -21 150 -56 150 -64 0 -3 -221 -227 -490 -496 -391
+       -391 -492 -487 -500 -475 -19 29 -52 126 -67 195 -21 100 -13 256 20 358 79
+       245 287 435 541 493 80 18 271 12 346 -11z m468 -402 c48 -112 57 -163 56
+       -303 0 -117 -4 -145 -26 -213 -74 -222 -256 -403 -475 -474 -102 -33 -258 -41
+       -358 -20 -69 15 -166 48 -195 67 -12 8 84 109 475 500 269 269 493 490 496
+       490 4 0 16 -21 27 -47z"/>
+                </g>
+            </svg>
+            </button>
+        </a></td> <!-- Funcionalidad de borrar -->
     </tr>
     <% }} %>
     </tbody>
