@@ -13,7 +13,7 @@
     <title>Actualizar</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
+
 </head>
 <body>
 <%
