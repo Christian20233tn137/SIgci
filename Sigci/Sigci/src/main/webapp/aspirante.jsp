@@ -32,7 +32,7 @@
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
         <td style="text-align: center"><%=u.getId_division()%></td>
-        <td style="text-align: center"><%=u.getEstado_usuario()%></td>
+        <td style="text-align: center"><%= u.getEstado_usuario() == 1 ? "Aprobado" : "Desaprobado" %></td>
     </tr>
     <% }} %>
     </tbody>

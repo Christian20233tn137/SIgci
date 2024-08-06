@@ -277,6 +277,18 @@ public class UserDao {
         return flag;
     }
 
+    public boolean aprobar(int id_usuario) throws SQLException{
+        boolean flag;
+        String sql = "update usuario set estado_usuario = 1 where id_usuario = ? ";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1,id_usuario);
+            flag = ps.executeUpdate()>0;
+        }
+        return flag;
+    }
+
     public ArrayList<User> getAllAspirantes() {
         ArrayList<User> usuario = new ArrayList<>();
         try(

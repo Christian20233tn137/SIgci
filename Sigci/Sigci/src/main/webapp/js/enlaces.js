@@ -7,3 +7,6 @@ function irAregistrar(){
     window.location.href='registrar.jsp'
 }
 
+function irLista(){
+    window.location.href='estadoAspirantes.jsp'
+}
