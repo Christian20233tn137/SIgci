@@ -81,7 +81,7 @@ public class UserDao {
             ps.setInt(8, 1);
             ps.setString(9, user.getNombre_usuario());
             ps.setString(10, fechaHoraFormatted);
-            ps.setInt(11, user.getIdtipo_usuario());
+            ps.setInt(11, 2);
             ps.setInt(12, user.getId_division());
             ps.setInt(13, user.getId_grupo());
 
@@ -211,6 +211,36 @@ public class UserDao {
                 u.setCurp(rs.getString("curp"));
                 u.setNombre_usuario(rs.getString("nombre_usuario"));
                 u.setEstado_usuario(rs.getInt("estado_usuario"));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return u;
+    }
+
+    public User getOne(String email){
+        User u = new User();
+        String query = "select * from usuario where email = ?";
+        try{
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1 , email);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setCurp(rs.getString("curp"));
+                u.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("id_division"));
+                u.setId_grupo(rs.getInt("id_grupo"));
+                u.setEstado(u.getEstado_usuario() == 1);
             }
         } catch (SQLException e){
             e.printStackTrace();

@@ -5,6 +5,9 @@
     response.setDateHeader("Expires", 0); // Proxies.
 %>
 <%@ page import="utez.edu.mx.sicci.model.User" %>
+<%@ page import="utez.edu.mx.sicci.model.Division" %>
+<%@ page import="java.util.List" %>
+<%@ page import="utez.edu.mx.sicci.model.Grupo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="es">
 <head>
@@ -83,38 +86,42 @@
                 <input type="text" id="nombre_usuario" name="nombre_usuario" required>
                 <label for="nombre_usuario">Usuario</label>
             </div>
-            <div class="form-group">
-                <label for="idtipo_usuario">Tipo de Usuario</label>
-                <select class="form-control" id="idtipo_usuario" name="idtipo_usuario" required>
-                    <option value="">Seleccione un tipo de usuario</option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Docente</option>
-                    <option value="3">Invitado</option>
-                </select>
-            </div>
             <br>
             <div class="form-group">
                 <label for="id_division">División</label>
-                <select class="form-control" id="id_division" name="id_division" required>
-                    <option value="">Seleccione una división</option>
-                    <option value="1">Div1</option>
-                    <option value="2">Div2</option>
-                    <option value="3">Div3</option>
+                <select name="id_division" id="id_division" class="input" required>
+                    <%
+                        List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
+                        if (divisionList != null){
+                            for (Division division : divisionList){
+                    %>
+                    <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
+                    <%
+                            }
+                        }
+                    %>
                 </select>
             </div>
             <br>
             <div class="form-group">
                 <label for="id_grupo">Grupo</label>
-                <select class="form-control" id="id_grupo" name="id_grupo" required>
-                    <option value="">Seleccione un grupo</option>
-                    <option value="1">Grupo1</option>
-                    <option value="2">Grupo2</option>
-                    <option value="3">Grupo3</option>
+                <select name="id_grupo" id="id_grupo" class="input" required>
+                    <%
+                        List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
+                        if (grupoList != null){
+                            for (Grupo grupo : grupoList){
+                    %>
+                    <option value="<%= grupo.getId_grupo() %>"><%= grupo.getDescripcion() %></option>
+                    <%
+                            }
+                        }
+                    %>
                 </select>
             </div>
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
+
             <center><input type="submit" class="registrar" value="Registrar"></center>
         </form>
     </div>

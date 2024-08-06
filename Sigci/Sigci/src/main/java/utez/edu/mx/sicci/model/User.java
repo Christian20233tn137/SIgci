@@ -18,6 +18,9 @@ public class User {
     private int id_division;
     private int id_grupo;
 
+    private boolean estado;
+
+
 
     public User() {
 
@@ -195,5 +198,13 @@ public class User {
 
     public void setDivisionNombre(String divisionNombre) {
         this.divisionNombre = divisionNombre;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }

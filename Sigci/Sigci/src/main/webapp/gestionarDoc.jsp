@@ -65,7 +65,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-lg-4">
-            <a href="registrar.jsp">
+            <a href="listasParaUsuario">
             <div class="card">
                 <div class="card-body" >
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
