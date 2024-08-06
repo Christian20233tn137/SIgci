@@ -116,7 +116,7 @@ thead th {
     box-shadow: white;
 }
 
-.styled-button2{
+.evaluar{
     padding: 10px 20px;
     font-size: 16px;
     color: #002DA0;
@@ -127,10 +127,10 @@ thead th {
     outline: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.styled-button2:hover {
-    background-color: #f1424b;
+.evaluar:hover {
+    background-color: lightgray;
 }
-.styled-button2:focus {
+.evaluar:focus {
     box-shadow: white;
 }
 
