@@ -95,7 +95,7 @@
                     %>
                 </select>
             </div>
-            <center><input type="submit" class="registrar" value="registrar"></center>
+            <input type="submit" class="registrar" value="registrar">
         </form>
     </div>
 </div>

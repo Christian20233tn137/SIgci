@@ -9,9 +9,9 @@ public class DatabaseConnectionManager {
     private static final String JDBC_URL =
             "jdbc:mysql://localhost:3306/sigci";
     private static final String USERNAME =
-            "root";
+            "root"; 
     private static final String PASSWORD =
-            "admin";
+            "root";
     private static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource dataSource;
 
