@@ -378,4 +378,37 @@ public class UserDao {
             return rowsUpdated > 0;
         }
     }
+    public boolean insertAdmin(User user) {
+        boolean flag = false;
+        String query = "INSERT INTO usuario(nombre, apellidos, email, curp, fecha_nacimiento, password, estado_password, estado_usuario, nombre_usuario, fecha_creacion, idtipo_usuario) VALUES (?, ?, ?, ?, ?, sha2(?,256), ?, ?, ?, ?, ?);";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+
+            LocalDateTime fechaHora = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String fechaHoraFormatted = fechaHora.format(formatter);
+
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellidos());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getCurp());
+            ps.setString(5, user.getFecha_nacimiento());
+            ps.setString(6, user.getPassword());
+            ps.setString(7, "Active"); // Usa constantes para estos valores
+            ps.setInt(8, 1);
+            ps.setString(9, user.getNombre_usuario());
+            ps.setString(10, fechaHoraFormatted);
+            ps.setInt(11, 1);
+
+            if (ps.executeUpdate() == 1) {
+                flag = true; // Si se insertó el dato
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Considera registrar la excepción en lugar de imprimirla
+        }
+
+        return flag;
+    }
 }
+

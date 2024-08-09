@@ -15,12 +15,6 @@
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
 </head>
 <body>
-<%
-    User u = (User) session.getAttribute("user");
-    if(u != null){
-        String nombre = u.getNombre() + " " + u.getApellidos();
-        request.setAttribute("nombre", nombre);
-%>
 <header>
     <div class="user">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -49,17 +43,15 @@
            268 -189 456 0 110 18 185 69 290 104 211 320 350 568 364 12 0 56 -4 99 -10z"/>
             </g>
         </svg>
-        <%= nombre %>
     </div>
-    <a class="logout-button" href="logout">Salir</a>
 </header>
 <br>
 
 <div class="container">
     <div class="login-box">
-        <center><h2>Registrar Docentes</h2></center>
+        <center><h2>Registrar Administradores</h2></center>
         <br>
-        <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
+        <form action="registrarAdmin" id="FormLogin" name="registroUsuario" method="post">
             <div class="user-box">
                 <input type="text" id="nombre" name="nombre" required>
                 <label for="nombre">Nombres</label>
@@ -85,37 +77,7 @@
                 <label for="nombre_usuario">Usuario</label>
             </div>
             <br>
-            <div class="form-group">
-                <label for="id_division">División</label>
-                <select name="id_division" id="id_division" class="input" required>
-                    <%
-                        List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
-                        if (divisionList != null){
-                            for (Division division : divisionList){
-                    %>
-                    <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
-                    <%
-                            }
-                        }
-                    %>
-                </select>
-            </div>
             <br>
-            <div class="form-group">
-                <label for="id_grupo">Grupo</label>
-                <select name="id_grupo" id="id_grupo" class="input" required>
-                    <%
-                        List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
-                        if (grupoList != null){
-                            for (Grupo grupo : grupoList){
-                    %>
-                    <option value="<%= grupo.getId_grupo() %>"><%= grupo.getDescripcion() %></option>
-                    <%
-                            }
-                        }
-                    %>
-                </select>
-            </div>
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
@@ -185,68 +147,5 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     </div>
 </div>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
-<%
-}else{
-%>
-<style>
-    .container-logout {
-        text-align: center;
-        background-color: white;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .container-logout h1 {
-        color: #333;
-    }
-    .container-logout p {
-        color: #666;
-    }
-    .container-logout a {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    .container-logout a:hover {
-        background-color: #0056b3;
-    }
-
-</style>
-<div class="container-logout">
-    <h1>Sesión Expirada</h1>
-    <br>
-    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-         width="200.000000pt" height="100.000000pt" viewBox="0 0 512.000000 512.000000"
-         preserveAspectRatio="xMidYMid meet">
-
-        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-           fill="#FB0D1C" stroke="none">
-            <path d="M2410 5114 c-565 -50 -978 -204 -1410 -528 -110 -82 -350 -317 -436
--426 -246 -312 -420 -677 -503 -1056 -76 -344 -74 -759 5 -1108 216 -958 976
--1717 1934 -1930 192 -43 347 -59 560 -59 354 0 670 62 987 194 496 207 930
-585 1213 1059 328 548 434 1223 294 1860 -229 1037 -1102 1836 -2158 1975
--119 15 -401 26 -486 19z m340 -1794 l0 -760 -190 0 -190 0 0 760 0 760 190 0
-190 0 0 -760z m-570 117 l0 -204 -62 -32 c-305 -159 -499 -478 -499 -826 -1
--203 46 -363 153 -526 54 -81 156 -191 228 -244 167 -124 411 -195 619 -180
-418 29 753 303 863 706 20 72 23 106 22 244 -1 143 -3 169 -27 248 -80 260
--254 473 -479 583 l-58 28 0 204 0 203 23 -6 c388 -119 722 -445 851 -835 58
--175 69 -246 69 -430 0 -184 -16 -282 -73 -445 -112 -319 -359 -595 -675 -753
--22 -11 -80 -34 -130 -52 -439 -155 -913 -72 -1282 225 -242 195 -413 487
--468 799 -20 115 -20 337 0 452 70 398 333 760 685 944 76 39 213 98 233 99 4
-1 7 -91 7 -202z"/>
-        </g>
-    </svg>
-    <br>
-    <p>Tu sesión ha expirado. Por favor, vuelve a iniciar sesión.</p>
-    <a href="${pageContext.request.contextPath}/login.jsp">Regresar</a>
-</div>
-<br>
-<%
-    }
-%>
 </body>
 </html>
