@@ -1,19 +1,16 @@
-<%
-    // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-    response.setDateHeader("Expires", 0); // Proxies.
-%>
-<%@ page import="utez.edu.mx.sicci.model.User" %>
-<%@ page import="utez.edu.mx.sicci.model.Division" %>
-<%@ page import="java.util.List" %>
-<%@ page import="utez.edu.mx.sicci.model.Grupo" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Angel
+  Date: 09/08/2024
+  Time: 10:04 a. m.
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Docente</title>
+    <title>Registrar Admin</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
 </head>
@@ -123,7 +120,7 @@
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
 
-           <input type="submit" class="registrar" value="Registrar">
+            <input type="submit" class="registrar" value="Registrar">
         </form>
     </div>
 

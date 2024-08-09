@@ -38,6 +38,8 @@
 
     </form>
     <a href="recovery.jsp">Olvidé mi contraseña</a>
+    <br>
+    <a href="registrarAdmin.jsp">Registrarse</a>
 </div>
 
 <footer class="logo">
