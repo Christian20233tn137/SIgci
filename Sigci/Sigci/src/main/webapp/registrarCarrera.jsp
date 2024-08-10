@@ -14,8 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Carrera</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/registrarCarrera.css" rel="stylesheet">
 </head>
 <%
     User u = (User) session.getAttribute("user");
@@ -56,16 +55,18 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-<div class="container">
-    <div class="login-box">
+<br>
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Carreras</h2></center>
         <br>
-        <form id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post">
-            <div class="user-box">
+        <form class="user-box" id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post">
+            <div class="col-4">
                 <input type="text" id="descripcion" name="descripcion" required>
                 <label> Nombre</label>
             </div>
-            <div class="user-box">
+            <br>
+            <div class="col-4 fs-5 " >
                 <select name="id_division" id="id_division" class="input" required>
                     <%
                     List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
@@ -79,11 +80,11 @@
                     %>
                 </select>
             </div>
-            <center><input type="submit" class="registrar" value="registrar"></center>
+           <input type="submit" class="registrar" value="registrar">
         </form>
     </div>
 </div>
-<div class="logo">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
@@ -141,7 +142,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
             <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
         </g>
     </svg>
-</div>
+</footer>
 <%
     }else{
 %>
