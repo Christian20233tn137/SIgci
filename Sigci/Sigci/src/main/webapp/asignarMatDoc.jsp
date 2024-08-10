@@ -19,8 +19,7 @@
 <head>
     <title>Asignar Materias a Docente</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/asignarMatDoc.css" rel="stylesheet">
 </head>
 <body>
 <%
@@ -61,12 +60,13 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-<div class="container">
-    <div class="login-box">
+<br>
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Asignar Materias a Docente</h2></center>
         <br>
         <form id="FormLogin" action="asignarMateriaDocente" name="asignarMateriaDocente" method="post">
-            <div class="user-box">
+            <div class="col-4">
                 <select name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
                     <<%
                     List<User> usuarioList = (List<User>) request.getAttribute("lista_user");
@@ -80,8 +80,9 @@
                     %>
                 </select>
             </div>
+            <br>
 
-            <div class="user-box">
+            <div class="col-4">
                 <select name="materia_id_materia" id="materia_id_materia" class="input" required>
                     <<%
                     List<Materia> materiaList = (List<Materia>) request.getAttribute("lista_materia");

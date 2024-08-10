@@ -1,6 +1,3 @@
-
-
-/* Estilos generales */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -33,8 +30,6 @@ header {
     border-color: #5784E6;
 }
 
-
-
 .logout-button {
 
     display: inline-block;
@@ -53,40 +48,19 @@ header {
     background-color: #57B6E6;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
-
-.login-box {
-    background-color: #f7f7f7;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-box h2 {
+.user-box .form-group {
+    flex: 1 1 45%;
     margin-bottom: 10px;
-    color: #333;
+    position: flex;
 }
-
-form {
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.user-box input .form-group select {
+    width: 50%;
+    height: 60%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
-
-
-
-.form-group select {
-    width: 50%; /* Ajusta el ancho del select aquí */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
 
 
 .registrar{
@@ -94,7 +68,7 @@ form {
     outline: none;
 }
 
-.login-box form .registrar{
+.registrar{
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -104,14 +78,14 @@ form {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-left: -550%;
-    margin-top: 100px;
+    margin: 50px auto;
+    right: -23%;
     letter-spacing: 4px;
     border: none;
     outline: none;
 }
 
-.login-box .registrar:hover {
+.registrar:hover {
     background: #5784E6;
     color: #fff;
     border-radius: 10px;
@@ -121,40 +95,11 @@ form {
     0 0 100px #5784E6;
 }
 
-.login-box button span {
-
-    position: absolute;
-    display: block;
-
-}
-
-@keyframes btn-anim1 {
-    0% {
-        left: -100%;
-    }
-
-    50%,100% {
-        left: 100%;
-    }
-}
-
-.login-box button span:nth-child(1) {
-    bottom: 2px;
-    left: -100%;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #5784E6);
-    animation: btn-anim1 2s linear infinite;
-
-}
-
-
 .logo{
     content: " ";
     position: absolute;
-    right: 95%;
+    right: 90%;
     z-index: 1;
-    top: 105%;
+    top: 80%;
 
 }
-
