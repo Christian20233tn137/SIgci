@@ -109,12 +109,12 @@
         <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
             <div class="mb-3">
                 <label for="nombre" class="form-label"></label>
-                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe tu nombre" required>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe el nombre" required>
             </div>
 
             <br>
             <div class="mb-3">
-                <input type="text" id="apellidos" name="apellidos"  class="form-control" placeholder="Escribe tu Apellido" required>
+                <input type="text" id="apellidos" name="apellidos"  class="form-control" placeholder="Escribe el Apellido" required>
                 <label for="apellidos" class="form-label"></label>
             </div>
             <br>
@@ -125,7 +125,7 @@
             <br>
             <br>
             <div class="mb-3">
-                <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe tu CURP"  required>
+                <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe  CURP"  required>
                 <label for="curp"></label>
             </div>
             <br>
@@ -179,7 +179,7 @@
         </form>
     </div>
 
-    <div class="logo">
+    <footer class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -237,7 +237,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
                 <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
             </g>
         </svg>
-    </div>
+    </footer>
 </div>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 <%

@@ -30,7 +30,7 @@ public class RegistrarAdminServlet extends HttpServlet {
             UserDao dao = new UserDao();
             if (dao.insertAdmin(user)) {
                 //respuesta hacia un jsp
-                resp.sendRedirect("login.jsp");
+                resp.sendRedirect("menuAdminppal.jsp");
             } else {
                 //la info no se insertó y regresa al formulario
                 HttpSession session = req.getSession();
