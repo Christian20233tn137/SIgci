@@ -1,0 +1,136 @@
+
+.medioCirculo {
+    width: 70%;
+    height: 100vh; /* El 50% de la altura del viewport */
+    background-color: white; /* Color de fondo del cÃ­rculo */
+    position: relative;
+    overflow: hidden;
+}
+
+.medioCirculo:before {
+    content: "";
+    display: block;
+    width: 400%; /* Doble del ancho del contenedor para asegurar que cubra toda la anchura */
+    height: 900%;
+    border-radius: 60%; /* Hacer el cÃ­rculo */
+    background-color: #0B1956; /* Color de fondo del cÃ­rculo */
+    position: absolute;
+    left: -40%;
+    top: 0;
+    transform: translateX(-48%);
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #f8f3ea;
+    box-sizing: border-box;
+
+    box-shadow: 0 15px 25px #0B1957;
+    border-radius: 10px;
+    z-index: 1; /* Para asegurarse de que estÃ© delante del background-circle */
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #0B1957;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #0B1957;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #0B1957;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+}
+.boton{
+    border:none;
+}
+
+.boton {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #0B1957;
+
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+ .boton:hover {
+    background: #5784E6;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #5784E6,
+    0 0 25px #5784E6,
+    0 0 50px #5784E6,
+    0 0 100px #5784E6;
+}
+
+.login-box .linea span {
+    position: absolute;
+    display: block;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,100% {
+        left: 100%;
+    }
+}
+
+.login-box .linea span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #5784E6);
+    animation: btn-anim1 2s linear infinite;
+}
+
+h2{
+    text-align: center;
+    color:#0B1957;
+}
+
+.logo{
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+
+}

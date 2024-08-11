@@ -10,8 +10,10 @@
 </head>
 <body>
 <div class="medioCirculo"></div>
+
 <div class="login-box">
     <h2>Iniciar Sesión</h2>
+    <br>
     <form id="FormLogin" action="signIn" method="post">
         <div class="user-box">
             <input type="text" id="email" name="correo" required>
@@ -37,10 +39,10 @@
         <% } %>
 
     </form>
-    <a href="recovery.jsp">Olvidé mi contraseña</a>
+    <center> <a href="recovery.jsp">Olvidé mi contraseña</a></center>
     <br>
-    <a href="registrarAdmin.jsp">Registrarse</a>
 </div>
+
 
 <footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
