@@ -94,7 +94,7 @@ form {
     outline: none;
 }
 
-.login-box form .registrar{
+.registrar{
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -104,14 +104,14 @@ form {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-left: -550%;
-    margin-top: 100px;
+    margin: 30px auto;
+    right: 15%;
     letter-spacing: 4px;
     border: none;
     outline: none;
 }
 
-.login-box .registrar:hover {
+ .registrar:hover {
     background: #5784E6;
     color: #fff;
     border-radius: 10px;

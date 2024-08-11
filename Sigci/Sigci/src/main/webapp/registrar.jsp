@@ -58,39 +58,46 @@
 </header>
 <br>
 
-<div class="container">
-    <div class="login-box">
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Docentes</h2></center>
         <br>
         <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
-            <div class="user-box">
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="nombre">Nombres</label>
+            <div class="mb-3">
+                <label for="nombre" class="form-label"></label>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe tu nombre" required>
             </div>
-            <div class="user-box">
-                <input type="text" id="apellidos" name="apellidos" required>
-                <label for="apellidos">Apellidos</label>
-            </div>
-            <div class="user-box">
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-                <label for="fecha_nacimiento">Fecha de nacimiento</label>
-            </div>
-            <div class="user-box">
-                <input type="text" id="curp" name="curp" required>
-                <label for="curp">CURP</label>
-            </div>
-            <div class="user-box">
-                <input type="email" id="email" name="email" required>
-                <label for="email">Correo institucional</label>
-            </div>
-            <div class="user-box">
-                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
-                <label for="nombre_usuario">Usuario</label>
+
+            <br>
+            <div class="mb-3">
+                <input type="text" id="apellidos" name="apellidos"  class="form-control" placeholder="Escribe tu Apellido" required>
+                <label for="apellidos" class="form-label"></label>
             </div>
             <br>
-            <div class="form-group">
-                <label for="id_division">División</label>
-                <select name="id_division" id="id_division" class="input" required>
+            <div class="mb-3">
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"  class="form-control" placeholder="Fecha nacimiento"  required>
+                <label for="fecha_nacimiento"></label>
+            </div>
+            <br>
+            <br>
+            <div class="mb-3">
+                <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe tu CURP"  required>
+                <label for="curp"></label>
+            </div>
+            <br>
+            <div class="mb-3">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
+                <label for="email"></label>
+            </div>
+            <br>
+            <div class="mb-3">
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required class="form-control" placeholder="Nombre de Usuario" >
+                <label for="nombre_usuario"></label>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label for="id_division" class="form-label"></label>
+                <select name="id_division" id="id_division"   class="form-select" required>
                     <%
                         List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
                         if (divisionList != null){
@@ -104,9 +111,9 @@
                 </select>
             </div>
             <br>
-            <div class="form-group">
-                <label for="id_grupo">Grupo</label>
-                <select name="id_grupo" id="id_grupo" class="input" required>
+            <div class="mb-3">
+                <label for="id_grupo" class="form-label"></label>
+                <select name="id_grupo" id="id_grupo"  class="form-select" required>
                     <%
                         List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
                         if (grupoList != null){
@@ -122,6 +129,7 @@
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
+            <br>
 
            <input type="submit" class="registrar" value="Registrar">
         </form>
