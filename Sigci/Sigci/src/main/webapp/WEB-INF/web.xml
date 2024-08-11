@@ -18,6 +18,10 @@
         <filter-name>AdminFilter</filter-name>
         <filter-class>utez.edu.mx.sicci.utils.AdminFilter</filter-class> <!-- Cambia esto según el paquete de tu filtro -->
     </filter>
+    <filter>
+        <filter-name>DocFilter</filter-name>
+        <filter-class>utez.edu.mx.sicci.utils.DocFilter</filter-class> <!-- Cambia esto según el paquete de tu filtro -->
+    </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/registrar.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
@@ -118,6 +122,21 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/listaUsuarios.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
     </filter-mapping>
-
-
+    <filter-mapping>
+        <filter-name>DocFilter</filter-name>
+        <url-pattern>/menuDocppal.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>DocFilter</filter-name>
+        <url-pattern>/recovery.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>DocFilter</filter-name>
+        <url-pattern>/aspirante.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>DocFilter</filter-name>
+        <url-pattern>/estadoAspirantes.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    
 </web-app>
