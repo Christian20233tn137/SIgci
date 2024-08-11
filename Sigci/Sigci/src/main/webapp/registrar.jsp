@@ -16,6 +16,50 @@
     <title>Registrar Docente</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/estilo.css" rel="stylesheet">
+
+<script>
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var apellidos = document.getElementById("apellidos").value;
+            var curp = document.getElementById("curp").value;
+            var email = document.getElementById("email").value;
+            var nombreUsuario = document.getElementById("nombre_usuario").value;
+
+            var nombreRegex = /^[A-Za-z\s]{1,50}$/;
+            var apellidosRegex = /^[A-Za-z\s]{1,50}$/;
+            var curpMaxLength = 25;
+            var emailMaxLength = 50;
+            var usuarioMaxLength = 15;
+
+            if (!nombreRegex.test(nombre)) {
+                alert("El nombre debe contener solo letras y no debe exceder los 50 caracteres.");
+                return false;
+            }
+
+            if (!apellidosRegex.test(apellidos)) {
+                alert("El apellido debe contener solo letras y no debe exceder los 50 caracteres.");
+                return false;
+            }
+
+            if (curp.length > curpMaxLength) {
+                alert("El CURP no debe exceder los 25 caracteres.");
+                return false;
+            }
+
+            if (email.length > emailMaxLength) {
+                alert("El correo electrónico no debe exceder los 50 caracteres.");
+                return false;
+            }
+
+            if (nombreUsuario.length > usuarioMaxLength) {
+                alert("El nombre de usuario no debe exceder los 15 caracteres.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
 <%
@@ -260,4 +304,6 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     }
 %>
 </body>
+<script src="js/formularios.js"></script>
+
 </html>
