@@ -94,6 +94,30 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/menuAdminppal.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaAspirante.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaCarrera.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaDivision.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaGrupos.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaMaterias.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/listaUsuarios.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
 
 
 </web-app>
