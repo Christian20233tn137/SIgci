@@ -13,6 +13,87 @@
         <url-pattern>/MateriasServlet</url-pattern>
     </servlet-mapping>
 
+    <!-- Configuración del filtro para AdminFilter -->
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>utez.edu.mx.sicci.utils.AdminFilter</filter-class> <!-- Cambia esto según el paquete de tu filtro -->
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrar.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrarAdmin.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrarCarrera.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrarDivision.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrarGrupo.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/registrarMateria.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizar.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizarAspirante.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizarCarrera.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizarDoc.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizarGrupo.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/actualizarMateria.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/asignarMatDoc.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/editarUsuario.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/gestCarrera.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/gestionarDoc.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/GestionarGP.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/gestionarMat.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/menuAdminppal.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
 
 
 </web-app>
