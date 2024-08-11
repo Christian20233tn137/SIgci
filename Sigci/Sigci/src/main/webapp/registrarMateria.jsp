@@ -53,7 +53,7 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-<div class="medioCirculo"></div>
+
 <div class="container">
     <div class="login-box">
         <center><h2>Registrar Materia</h2></center>
@@ -63,15 +63,15 @@
                 <input type="text" id="nombre_materia" name="nombre_materia" required>
                 <label>Nombre materia:</label>
             </div>
-            <center><input type="submit" class="registrar" value="Registrar"></center>
+            <input type="submit" class="registrar" value="Registrar">
         </form>
     </div>
-    <div class="logo">
+    <footer class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
              preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
-               fill="#FFFFFF" stroke="none">
+               fill="#000000" stroke="none">
                 <path d="M643 1690 c-17 -10 -36 -28 -42 -38 -6 -11 -25 -22 -46 -25 -64 -10
 -125 -72 -125 -125 0 -16 -9 -20 -51 -24 -89 -9 -142 -69 -140 -162 0 -42 -4
 -58 -20 -72 -30 -27 -58 -87 -65 -137 -8 -57 10 -117 51 -171 28 -38 34 -53
@@ -124,6 +124,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
                 <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
             </g>
         </svg>
+    </footer>
     </div>
 </div>
 <%
