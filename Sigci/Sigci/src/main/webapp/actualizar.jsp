@@ -12,7 +12,7 @@
 <head>
     <title>Actualizar</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/actualizar.css" rel="stylesheet">
 
 </head>
 <body>
@@ -57,40 +57,43 @@
 
 
 <br>
-<div class="login-box">
-<form action="actualizarUsuario" method="post" >
+<div class="container d-flex justify-content-center align-items-center vh-50">
+<div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <center><h2>Actualizar Docentes</h2></center>
-    <input type="hidden" name="id" value="${user.id_usuario}">
+    <br>
+<form action="actualizarUsuario" method="post" >
+    <input type="hidden" name="id" class="form-control"  value="${user.id_usuario}">
     <label>Ingrese su nombre: </label>
-    <input type="text" id="nombre" name="nombre" value="${user.nombre}" required>
+    <input type="text" id="nombre" name="nombre" class="form-control"  value="${user.nombre}" required>
     <br>
     <label>Ingrese su apellido: </label>
-    <input type="text" id="apellidos" name="apellidos" value="${user.apellidos}" required>
+    <input type="text" id="apellidos" name="apellidos" class="form-control"  value="${user.apellidos}" required>
     <br>
     <label>Ingrese su correo: </label>
-    <input type="email" id="email" name="email" value="${user.email}" required>
+    <input type="email" id="email" name="email" class="form-control"  value="${user.email}" required>
     <br>
     <label>Ingrese su curp: </label>
     <br>
-    <input type="text" id="curp" name="curp" value="${user.curp}" required>
+    <input type="text" id="curp" name="curp" class="form-control"  value="${user.curp}" required>
     <br>
     <label>Ingrese su nombre de usuario: </label>
-    <input type="text" id="nombre_usuario" name="nombre_usuario" value="${user.nombre_usuario}" required>
+    <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"  value="${user.nombre_usuario}" required>
     <br>
     <label>Ingrese su estado: </label>
-    <select id="estado_usuario" name="estado_usuario" required>
+    <select id="estado_usuario" name="estado_usuario" class="form-select" required>
         <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
         <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desabilitar</option>
     </select>
 
-    <br>
+
     <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
     <br>
     <input  class="registrar" type="submit" value="Aceptar">
-    <a  class="registrar"   href="getListaDocentes">Volver a la lista</a>
+    <a  class="registrar1"  href="getListaDocentes">Volver a la lista</a>
 </form>
 </div>
-<div class="logo">
+</div>
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
@@ -148,7 +151,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
             <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
         </g>
     </svg>
-</div>
+</footer>
 <%
     }else{
 %>

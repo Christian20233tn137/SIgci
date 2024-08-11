@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu administrador</title>
+    <link sizes="32x32"  href="<%= request.getContextPath() %>/img/sigci" rel="stylesheet">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/menuAdminppal.css">
 </head>
