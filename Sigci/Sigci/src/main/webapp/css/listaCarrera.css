@@ -7,12 +7,6 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-
-.footer{
-    margin-top: 3%;
-
-}
-
 header {
     background-color: #223B87;
     color: #fff;
@@ -53,17 +47,16 @@ header {
 
 
 
+.table-container {
 
-.logo{
-    content: " ";
-    position: absolute;
-    right: 90%;
-    z-index: 1;
-    top: 85%;
-
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
 table {
+
     width: 50%;
     border-collapse: collapse;
     background-color: #ffffff;
@@ -71,25 +64,48 @@ table {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 thead {
-    background-color: #00796b;
-    color: white;
+    background-color: #007bff;
+    color: #ffffff;
 }
 
 th, td {
-    padding: 15px;
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    font-weight: bold;
-    text-transform: uppercase;
+    border-bottom: 2px solid #0056b3;
 }
 
-tbody tr:nth-child(even) {
+td {
+    border-bottom: 1px solid #e9ecef;
+}
+
+tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/*Responsivo */
+@media (max-width: 768px) {
+    th, td {
+        padding: 10px;
+    }
+}
+.footer{
+    margin-top: 3%;
+
+}
+
+.logo{
+    content: " ";
+    position: absolute;
+    right: 90%;
+    z-index: 1;
+    top: 80%;
+
+}
 .styled-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -155,4 +171,3 @@ tbody tr:nth-child(even) {
     margin-right: 8px;
     border-color: #5784E6;
 }
-

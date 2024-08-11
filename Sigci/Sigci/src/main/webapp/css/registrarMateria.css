@@ -1,25 +1,4 @@
 
-.medioCirculo {
-    width: 70%;
-    height: 100vh; /* El 50% de la altura del viewport */
-    background-color: white; /* Color de fondo del cÃ­rculo */
-    position: relative;
-    overflow: hidden;
-}
-
-.medioCirculo:before {
-    content: "";
-    display: block;
-    width: 400%; /* Doble del ancho del contenedor para asegurar que cubra toda la anchura */
-    height: 900%;
-    border-radius: 60%; /* Hacer el cÃ­rculo */
-    background-color: #0B1956; /* Color de fondo del cÃ­rculo */
-    position: absolute;
-    left: -40%;
-    top: 0;
-    transform: translateX(-48%);
-}
-
 
 header {
     background-color: #223B87;
@@ -113,34 +92,38 @@ body {
     color: #bdb8b8;
     font-size: 12px;
 }
-.boton{
-    border:none;
+.registrar{
+    border: none;
+    outline: none;
 }
 
-.login-box form .boton {
+.registrar{
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     color: #0B1957;
-
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin: 50px auto;
+    right: -23%;
     letter-spacing: 4px;
+    border: none;
+    outline: none;
 }
 
-.login-box .boton:hover {
+.registrar:hover {
     background: #5784E6;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 5px #5784E6,
     0 0 25px #5784E6,
     0 0 50px #5784E6,
     0 0 100px #5784E6;
 }
+
 
 .login-box .linea span {
     position: absolute;
