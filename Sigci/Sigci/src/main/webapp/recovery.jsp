@@ -10,7 +10,7 @@
 
 
 <div class="login-box">
-   
+
 <h1>Recuperar Contraseña</h1>
        <br>
 <form action="recovery-code" method="post">

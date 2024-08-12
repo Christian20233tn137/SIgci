@@ -86,7 +86,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <div  class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <center><h2>Actualizar Aspirantes</h2></center>
 <form action="actualizarAspirante" method="post" >
-    <input type="hidden" name="id" value="${user.id_usuario}">
+    <input type="hidden" name="id"  class="form-control" value="${user.id_usuario}">
     <label>Ingrese su nombre: </label>
     <input type="text" id="nombre" name="nombre" class="form-control"  value="${user.nombre}" required>
     <br>
