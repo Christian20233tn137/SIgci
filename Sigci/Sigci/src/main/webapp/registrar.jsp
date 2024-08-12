@@ -9,57 +9,17 @@
 <%@ page import="java.util.List" %>
 <%@ page import="utez.edu.mx.sicci.model.Grupo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Docente</title>
+    <script src="https://kit.fontawesome.com/982c17546c.js" crossorigin="anonymous"></script>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/estilo.css" rel="stylesheet">
-
-<script>
-        function validarFormulario() {
-            var nombre = document.getElementById("nombre").value;
-            var apellidos = document.getElementById("apellidos").value;
-            var curp = document.getElementById("curp").value;
-            var email = document.getElementById("email").value;
-            var nombreUsuario = document.getElementById("nombre_usuario").value;
-
-            var nombreRegex = /^[A-Za-z\s]{1,50}$/;
-            var apellidosRegex = /^[A-Za-z\s]{1,50}$/;
-            var curpMaxLength = 25;
-            var emailMaxLength = 50;
-            var usuarioMaxLength = 15;
-
-            if (!nombreRegex.test(nombre)) {
-                alert("El nombre debe contener solo letras y no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (!apellidosRegex.test(apellidos)) {
-                alert("El apellido debe contener solo letras y no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (curp.length > curpMaxLength) {
-                alert("El CURP no debe exceder los 25 caracteres.");
-                return false;
-            }
-
-            if (email.length > emailMaxLength) {
-                alert("El correo electrónico no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (nombreUsuario.length > usuarioMaxLength) {
-                alert("El nombre de usuario no debe exceder los 15 caracteres.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <%
@@ -107,41 +67,66 @@
         <center><h2>Registrar Docentes</h2></center>
         <br>
         <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
-            <div class="mb-3">
-                <label for="nombre" class="form-label"></label>
-                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe el nombre" required>
+
+            <div class="mb-3 formulario__grupo" id="grupo__nombre">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <div>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe el nombre" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El nombre debe tener entre 1 y 40 caracteres y solo puede contener letras.</p>
+            </div>
+
+            <br>
+            <div class="mb-3 formulario__grupo" id="grupo__apellidos">
+                <label for="apellidos" class="form-label">Apellidos:</label>
+                <div>
+                    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Escribe el Apellido" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Los apellidos deben tener entre 1 y 40 caracteres y solo pueden contener letras.</p>
             </div>
 
             <br>
             <div class="mb-3">
-                <input type="text" id="apellidos" name="apellidos"  class="form-control" placeholder="Escribe el Apellido" required>
-                <label for="apellidos" class="form-label"></label>
+                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="Fecha nacimiento" required>
             </div>
+
+            <br>
+            <div class="mb-3 formulario__grupo" id="grupo__curp">
+                <label for="curp" class="form-label">CURP:</label>
+                <div>
+                    <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe CURP" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El CURP debe contener 18 caracteres, entre letras y números.</p>
+            </div>
+
+            <br>
+            <div class="mb-3 formulario__grupo" id="grupo__email">
+                <label for="email" class="form-label">Correo Electrónico:</label>
+                <div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo debe ser válido y contener "@" y un dominio.</p>
+            </div>
+
+            <br>
+            <div class="mb-3 formulario__grupo" id="grupo__nombre_usuario">
+                <label for="nombre_usuario" class="form-label">Nombre de Usuario:</label>
+                <div>
+                    <input type="text" id="nombre_usuario" name="nombre_usuario" required class="form-control" placeholder="Nombre de Usuario">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El nombre de usuario debe tener entre 4 y 16 caracteres y solo puede contener letras, números, guion o guion bajo.</p>
+            </div>
+
             <br>
             <div class="mb-3">
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"  class="form-control" placeholder="Fecha nacimiento"  required>
-                <label for="fecha_nacimiento"></label>
-            </div>
-            <br>
-            <br>
-            <div class="mb-3">
-                <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe  CURP"  required>
-                <label for="curp"></label>
-            </div>
-            <br>
-            <div class="mb-3">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
-                <label for="email"></label>
-            </div>
-            <br>
-            <div class="mb-3">
-                <input type="text" id="nombre_usuario" name="nombre_usuario" required class="form-control" placeholder="Nombre de Usuario" >
-                <label for="nombre_usuario"></label>
-            </div>
-            <br>
-            <div class="mb-3">
-                <label for="id_division" class="form-label"></label>
-                <select name="id_division" id="id_division"   class="form-select" required>
+                <label for="id_division" class="form-label">División:</label>
+                <select name="id_division" id="id_division" class="form-select" required>
                     <%
                         List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
                         if (divisionList != null){
@@ -154,10 +139,11 @@
                     %>
                 </select>
             </div>
+
             <br>
             <div class="mb-3">
-                <label for="id_grupo" class="form-label"></label>
-                <select name="id_grupo" id="id_grupo"  class="form-select" required>
+                <label for="id_grupo" class="form-label">Grupo:</label>
+                <select name="id_grupo" id="id_grupo" class="form-select" required>
                     <%
                         List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
                         if (grupoList != null){
@@ -170,13 +156,26 @@
                     %>
                 </select>
             </div>
+
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
-            <br>
 
-           <input type="submit" class="registrar" value="Registrar">
+            <br>
+            <div id="formulario__mensaje" class="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor, completa correctamente todos los campos.</p>
+            </div>
+
+            <div id="formulario__mensaje-exito" class="formulario__mensaje">
+                <p><i class="fas fa-check-circle"></i> <b>Éxito:</b> El formulario se ha enviado correctamente.</p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <input type="submit" class="registrar" value="Registrar">
+            </div>
         </form>
+
+
     </div>
 
     <footer class="logo">
@@ -236,9 +235,10 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
                 <path d="M630 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
                 <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
             </g>
-        </svg>
+        </svg>Re
     </footer>
 </div>
+<script src="<%= request.getContextPath() %>/js/formularios.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 <%
 }else{
@@ -304,6 +304,4 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     }
 %>
 </body>
-<script src="js/formularios.js"></script>
-
 </html>
