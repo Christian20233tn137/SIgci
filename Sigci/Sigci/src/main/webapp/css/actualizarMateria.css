@@ -99,7 +99,7 @@ a {
     overflow: hidden;
     transition: .5s;
     margin: 10px auto;
-    right: -25%;
+    right: 25%;
     letter-spacing: 4px;
     border: none;
     outline: none;
@@ -148,6 +148,6 @@ a {
     position: absolute;
     right: 90%;
     z-index: 1;
-    top: 130%;
+    top: 80%;
 
 }
