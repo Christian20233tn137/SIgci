@@ -128,10 +128,6 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>DocFilter</filter-name>
-        <url-pattern>/recovery.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>DocFilter</filter-name>
         <url-pattern>/aspirante.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
     </filter-mapping>
     <filter-mapping>

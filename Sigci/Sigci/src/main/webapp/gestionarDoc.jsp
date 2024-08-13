@@ -168,7 +168,7 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="">
+            <a href="getListaDocenteMateria">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">

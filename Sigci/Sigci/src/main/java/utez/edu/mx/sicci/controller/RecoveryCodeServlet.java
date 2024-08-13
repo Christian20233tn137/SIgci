@@ -43,7 +43,7 @@ public class RecoveryCodeServlet extends HttpServlet {
                 // El código se insertó en la base
                 try {
                     sendEmail(correo, code);
-                    resp.sendRedirect("menuAdminppal.jsp");
+                    resp.sendRedirect("resetPassword.jsp");
                 } catch (MessagingException e) {
                     throw new RuntimeException(e);
                 }
@@ -72,16 +72,11 @@ public class RecoveryCodeServlet extends HttpServlet {
     }
 
 
-    private final String username = "sigcisigci@gmail.com";
-    private final String password = "pqwq nvqu nncm jitz";
-    private final String smtpHost = "smtp.gmail.com";
-    private final String smtpPort = "587";
-
     // Mandar Correo ↓↓↓ ------------------------------------------------------------------------
     private void sendEmail(String to, String recoveryCode) throws MessagingException {
         // Configuración del correo
-        String username = "recetasmedicas33@gmail.com";
-        String password = "ypyb kubi jcwi tgyt";
+        String username = "sigcisigci@gmail.com";
+        String password = "bmzr byks geqh bjnv";
 
         // Propiedades del correo
         Properties properties = new Properties();
@@ -99,10 +94,10 @@ public class RecoveryCodeServlet extends HttpServlet {
 
         // Crear el mensaje
         MimeMessage message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("recetasmedicas33@gmail.com"));
+        message.setFrom(new InternetAddress("sigcisigci@gmail.com"));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-        message.setSubject("Código de Recuperación de Cuenta");
-        message.setText("Tu código de recuperación es: " + recoveryCode);
+        message.setSubject("Código de Recuperación de Cuenta SIGCI");
+        message.setText("Hola somos SIGCI, tu código de recuperación es: " + recoveryCode);
 
         // Enviar el mensaje
         Transport.send(message);

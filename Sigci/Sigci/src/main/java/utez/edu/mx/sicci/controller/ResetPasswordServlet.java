@@ -19,9 +19,9 @@ public class ResetPasswordServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String correo = request.getParameter("correo");
+        String correo = request.getParameter("email");
         String newPassword = request.getParameter("password");
-        String codigo = request.getParameter("codigo");
+        String codigo = request.getParameter("cody");
 
         try {
             boolean success = usuarioDao.resetPassword(correo, newPassword, codigo);

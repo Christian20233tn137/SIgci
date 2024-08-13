@@ -26,7 +26,7 @@ public class AsignarDocenteMateriaServlet extends HttpServlet {
 
         DivisionDao dao = new DivisionDao();
         if (dao.asignar(usuario_has_materia)){
-            resp.sendRedirect("menuAdminppal.jsp");
+            resp.sendRedirect("getListaDocenteMateria");
         }else {
             // La info no a sido insertada y regresa al formulario
             HttpSession session = req.getSession();
