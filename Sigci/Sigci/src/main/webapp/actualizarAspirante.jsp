@@ -237,5 +237,32 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function valCarrera() {
+        // Obtener el valor del campo de texto
+        const descripcion = document.getElementById("descripcion").value.trim();
+        // Obtener el span donde se mostrará el mensaje de error
+        const descripcionError = document.getElementById("descripcionError");
+
+        // Limpiar el mensaje de error previo
+        descripcionError.innerText = "";
+
+        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
+        if (descripcion.length < 1 || descripcion.length > 50) {
+            descripcionError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Verificar que el campo contenga solo letras
+        const soloLetras = /^[a-zA-Z\s]+$/;
+        if (!soloLetras.test(descripcion)) {
+            descripcionError.innerText = " solo puede contener letras.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Si todo está bien, permitir que el formulario se envíe
+        return true;
+    }
+</script>
 </body>
 </html>

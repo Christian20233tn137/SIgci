@@ -60,19 +60,20 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Carreras</h2></center>
         <br>
-        <form class="user-box" id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post">
+        <form class="user-box" id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post" onsubmit="return valCarrera()">
             <div class="col-4">
                 <input type="text" id="descripcion" name="descripcion" required>
-                <label> Nombre</label>
+                <label for="descripcion">Nombre</label>
+                <span id="descripcionError" style="color:red"></span>
             </div>
             <br>
-            <div class="col-4 fs-5 " >
+            <div class="col-4 fs-5">
                 <select name="id_division" id="id_division" class="input" required>
                     <%
-                    List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
-                    if (divisionList != null){
-                        for (Division division : divisionList){
-                %>
+                        List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
+                        if (divisionList != null){
+                            for (Division division : divisionList){
+                    %>
                     <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
                     <%
                             }
@@ -80,7 +81,8 @@
                     %>
                 </select>
             </div>
-           <input type="submit" class="registrar" value="registrar">
+            <br>
+            <input type="submit" class="registrar" value="Registrar">
         </form>
     </div>
 </div>
@@ -172,6 +174,10 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     .container-logout a:hover {
         background-color: #0056b3;
     }
+    .error {
+        color: red;
+        font-size: 0.9em;
+    }
 
 </style>
 <div class="container-logout">
@@ -206,6 +212,33 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function valCarrera() {
+        // Obtener el valor del campo de texto
+        const descripcion = document.getElementById("descripcion").value.trim();
+        // Obtener el span donde se mostrará el mensaje de error
+        const descripcionError = document.getElementById("descripcionError");
+
+        // Limpiar el mensaje de error previo
+        descripcionError.innerText = "";
+
+        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
+        if (descripcion.length < 1 || descripcion.length > 50) {
+            descripcionError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Verificar que el campo contenga solo letras
+        const soloLetras = /^[a-zA-Z\s]+$/;
+        if (!soloLetras.test(descripcion)) {
+            descripcionError.innerText = " solo puede contener letras.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Si todo está bien, permitir que el formulario se envíe
+        return true;
+    }
+</script>
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 </html>

@@ -13,7 +13,16 @@
     <title>Registrar División</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet"></head>
+    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
+    <style>
+        .error-message {
+            color: #d9534f;
+            font-size: 0.875rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
 <body>
 <header>
     <div class="user">
@@ -51,12 +60,13 @@
     <div class="login-box">
         <center><h2>Registrar Divisiones</h2></center>
         <br>
-        <form id="FormLogin" action="registrarDivision" name="registroDivision" method="post">
+        <form id="FormLogin" action="registrarDivision" name="registroDivision" method="post" onsubmit="return valDivision()">
             <div class="user-box">
-                <input type="text" id="nombre" name="nombre" required>
-                <label> Nombre </label>
+                <input type="text" id="descripcion" name="descripcion" required>
+                <label for="descripcion">Descripción</label>
+                <span id="descripcionError" class="error-message"></span>
             </div>
-            <center><input type="submit" class="registrar" value="registrar"></center>
+            <center><input type="submit" class="registrar" value="Registrar"></center>
         </form>
     </div>
 </div>
@@ -119,6 +129,31 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         </g>
     </svg>
 </div>
+
+<script>
+    function valDivision() {
+        var descripcion = document.getElementById("descripcion").value;
+        var errorElement = document.getElementById("descripcionError");
+        var regex = /^[A-Za-z]+$/; // Regex para permitir solo letras
+
+        // Resetear mensaje de error
+        errorElement.textContent = '';
+
+        // Verificar longitud
+        if (descripcion.length < 1 || descripcion.length > 40) {
+            errorElement.textContent = 'La descripción debe tener entre 1 y 40 caracteres.';
+            return false; // Evitar el envío del formulario
+        }
+
+        // Verificar solo letras
+        if (!regex.test(descripcion)) {
+            errorElement.textContent = 'La descripción solo debe contener letras.';
+            return false; // Evitar el envío del formulario
+        }
+
+        return true; // Permitir el envío del formulario
+    }
+</script>
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 

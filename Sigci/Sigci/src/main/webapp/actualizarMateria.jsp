@@ -15,7 +15,14 @@
     <title>Actualizar Materia</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarMateria.css" rel="stylesheet">
-
+    <style>
+        .error-message {
+            color: #d9534f; /* Rojo para mensajes de error */
+            font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+            display: block; /* Mostrar como bloque */
+            margin-top: 0.25rem; /* Espaciado superior */
+        }
+    </style>
 </head>
 <%
     User u = (User) session.getAttribute("user");
@@ -60,10 +67,12 @@
 <div class="container d-flex justify-content-center align-items-center vh-50">
 <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <h2>Actualizar Materia</h2>
-    <form action="actualizarMateria" method="post">
-        <input type="hidden" name="id"  class="form-control" value="${materia.id_materia}">
+
+    <form action="actualizarMateria" method="post" onsubmit="return valFormMateria()">
+        <input type="hidden" name="id" class="form-control" value="${materia.id_materia}">
         <label for="nombre_materia">Ingrese la nueva descripción:</label>
-        <input type="text" id="nombre_materia" name="nombre_materia"  class="form-control" value="${materia.nombre_materia}" required>
+        <input type="text" id="nombre_materia" name="nombre_materia" class="form-control" value="${materia.nombre_materia}" required>
+        <span id="nombreMateriaError" class="error-message"></span>
         <input type="hidden" value="${materia.id_materia}" name="id_materia">
         <center><input type="submit" class="registrar" value="Aceptar"></center>
     </form>
@@ -193,6 +202,36 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function valFormMateria() {
+        // Obtener el valor del campo de texto
+        const nombreMateria = document.getElementById("nombre_materia").value;
+        // Obtener el span donde se mostrará el mensaje de error
+        const errorSpan = document.getElementById("nombreMateriaError");
 
+        // Limpiar el mensaje de error previo
+        errorSpan.innerText = "";
+
+        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
+        if (nombreMateria.length < 1 || nombreMateria.length > 40) {
+            // Mostrar mensaje de error en el span
+            errorSpan.innerText = "El nombre de la materia debe tener entre 1 y 40 caracteres.";
+            // Evitar que el formulario se envíe
+            return false;
+        }
+
+        // Verificar que el campo contenga solo letras
+        const soloLetras = /^[a-zA-Z\s]+$/;
+        if (!soloLetras.test(nombreMateria)) {
+            // Mostrar mensaje de error en el span
+            errorSpan.innerText = "El nombre de la materia debe contener solo letras.";
+            // Evitar que el formulario se envíe
+            return false;
+        }
+
+        // Si todo está bien, permitir que el formulario se envíe
+        return true;
+    }
+</script>
 </body>
 </html>

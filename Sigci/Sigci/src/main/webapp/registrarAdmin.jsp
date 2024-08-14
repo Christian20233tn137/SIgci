@@ -14,48 +14,6 @@
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrarAdmin.css" rel="stylesheet">
 
-    <script>
-        function validarFormulario() {
-            var nombre = document.getElementById("nombre").value;
-            var apellidos = document.getElementById("apellidos").value;
-            var curp = document.getElementById("curp").value;
-            var email = document.getElementById("email").value;
-            var nombreUsuario = document.getElementById("nombre_usuario").value;
-
-            var nombreRegex = /^[A-Za-z\s]{1,50}$/;
-            var apellidosRegex = /^[A-Za-z\s]{1,50}$/;
-            var curpMaxLength = 25;
-            var emailMaxLength = 50;
-            var usuarioMaxLength = 15;
-
-            if (!nombreRegex.test(nombre)) {
-                alert("El nombre debe contener solo letras y no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (!apellidosRegex.test(apellidos)) {
-                alert("El apellido debe contener solo letras y no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (curp.length > curpMaxLength) {
-                alert("El CURP no debe exceder los 25 caracteres.");
-                return false;
-            }
-
-            if (email.length > emailMaxLength) {
-                alert("El correo electrónico no debe exceder los 50 caracteres.");
-                return false;
-            }
-
-            if (nombreUsuario.length > usuarioMaxLength) {
-                alert("El nombre de usuario no debe exceder los 15 caracteres.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </head>
 <body>
 <%
@@ -104,32 +62,38 @@
         <br>
         <form class="form-group" action="registrarAdmin" id="FormLogin" name="registroUsuario" method="post">
             <div class="col-4">
-                <input  type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre (s)" required>
-                <label for="nombre"></label>
+                <label for="nombre">Nombre (s)</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre (s)" required>
+                <span id="nombreError" style="color:red"></span>
             </div>
             <br>
             <div class="mb-3">
+                <label for="apellidos">Apellido(s)</label>
                 <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellido(s)" required>
-                <label for="apellidos"></label>
+                <span id="apellidosError" style="color:red"></span>
             </div>
             <br>
             <div class="mb-3">
+                <label for="fecha_nacimiento">Fecha de nacimiento</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" required>
-                <label for="fecha_nacimiento"></label>
+                <span id="fechaNacimientoError" style="color:red"></span>
             </div>
             <br>
             <div class="mb-3">
-                <input type="text" id="curp" name="curp" class="form-control" class="form-control" placeholder="CURP" required>
-                <label for="curp"></label>
+                <label for="curp">CURP</label>
+                <input type="text" id="curp" name="curp" class="form-control" placeholder="CURP" required>
+                <span id="curpError" style="color:red"></span>
             </div>
             <div class="mb-3">
+                <label for="email">Correo institucional</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
-                <label for="email"></label>
+                <span id="emailError" style="color:red"></span>
             </div>
             <br>
             <div class="mb-3">
-                <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control" placeholder="Nombre de Uusario" required>
-                <label for="nombre_usuario"></label>
+                <label for="nombre_usuario">Nombre de Usuario</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control" placeholder="Nombre de Usuario" required>
+                <span id="nombreUsuarioError" style="color:red"></span>
             </div>
             <br>
 
@@ -291,6 +255,10 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     .container-logout a:hover {
         background-color: #0056b3;
     }
+    .error {
+        color: red;
+        font-size: 0.9em;
+    }
 
 </style>
 <div class="container-logout">
@@ -326,6 +294,81 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     }
 %>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
+<script>
+    function valAdmin() {
+        // Obtener los valores de los campos
+        const nombre = document.getElementById("nombre").value.trim();
+        const apellidos = document.getElementById("apellidos").value.trim();
+        const curp = document.getElementById("curp").value.trim().toUpperCase();
+        const email = document.getElementById("email").value.trim();
+        const nombreUsuario = document.getElementById("nombre_usuario").value.trim();
+        const fechaNacimiento = document.getElementById("fecha_nacimiento").value.trim();
+
+        // Obtener los spans de error
+        const nombreError = document.getElementById("nombreError");
+        const apellidosError = document.getElementById("apellidosError");
+        const curpError = document.getElementById("curpError");
+        const emailError = document.getElementById("emailError");
+        const nombreUsuarioError = document.getElementById("nombreUsuarioError");
+        const fechaNacimientoError = document.getElementById("fechaNacimientoError");
+
+        // Limpiar mensajes de error previos
+        nombreError.innerText = "";
+        apellidosError.innerText = "";
+        curpError.innerText = "";
+        emailError.innerText = "";
+        nombreUsuarioError.innerText = "";
+        fechaNacimientoError.innerText = "";
+
+        // Validaciones
+        let valid = true;
+
+        if (!/^[a-zA-Z]+$/.test(nombre)) {
+            nombreError.innerText = "El nombre solo puede contener letras.";
+            valid = false;
+        }
+
+        if (!/^[a-zA-Z]+$/.test(apellidos)) {
+            apellidosError.innerText = "El apellido solo puede contener letras.";
+            valid = false;
+        }
+
+        if (curp.length !== 18 || !/^[A-Z0-9]+$/.test(curp)) {
+            curpError.innerText = "El CURP debe tener 18 caracteres y solo contener letras mayúsculas y números.";
+            valid = false;
+        }
+
+        if (nombre.length < 1 || nombre.length > 40) {
+            nombreError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
+            valid = false;
+        }
+
+        if (apellidos.length < 1 || apellidos.length > 40) {
+            apellidosError.innerText = "El apellido debe tener entre 1 y 40 caracteres.";
+            valid = false;
+        }
+
+        if (nombreUsuario.length < 1 || nombreUsuario.length > 40) {
+            nombreUsuarioError.innerText = "El nombre de usuario debe tener entre 1 y 40 caracteres.";
+            valid = false;
+        }
+
+
+        if (!email) {
+            emailError.innerText = "El correo electrónico es obligatorio.";
+            valid = false;
+        }
+
+        if (!valid) {
+            return false; // Evitar el envío del formulario si hay errores
+        }
+
+        return true; // Permitir el envío del formulario si no hay errores
+    }
+
+    // Asociar la función de validación al evento onsubmit del formulario
+    document.getElementById("FormLogin").onsubmit = valAdmin;
+</script>
 </body>
-<script src="js/formularios.js"></script>
+
 </html>

@@ -12,6 +12,21 @@
     <title>Actualizar Carrera</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarCarrera.css" rel="stylesheet">
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del elemento */
+        }
+        .error-message {
+            color: #d9534f; /* Rojo para mensajes de error */
+            font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+            display: block; /* Mostrar como bloque */
+            margin-top: 0.25rem; /* Espaciado superior */
+        }
+    </style>
 </head>
 <body>
 <%
@@ -84,14 +99,14 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <div class="container d-flex justify-content-center align-items-center vh-50">
 <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <center><h2>Actualizar Carreras</h2></center>
-<form action="actualizarCarrera" method="post" >
-    <input type="hidden" name="idcarrrera" class="form-control" value="${carrrera.idcarrrera}">
-    <label>Ingrese la nueva descripcion: </label>
-    <input type="text" id="descripcion" name="descripcion" class="form-control" value="${carrrera.descripcion}" required>
-
-    <input type="hidden" value="${carrrera.idcarrrera}" name="idcarrrera" />
-    <input class="registrar"  type="submit" value="Aceptar">
-</form>
+    <form action="actualizarCarrera" method="post" onsubmit="return valCarrera()">
+        <input type="hidden" name="idcarrrera" class="form-control" value="${carrrera.idcarrrera}">
+        <label for="descripcion">Ingrese la nueva descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" class="form-control" value="${carrrera.descripcion}" required>
+        <span id="descripcionError" class="error-message"></span>
+        <input type="hidden" value="${carrrera.idcarrrera}" name="idcarrrera" />
+        <input class="registrar" type="submit" value="Aceptar">
+    </form>
 <a class="registrar1" href="getListaCarrera">Volver a la lista</a>
 </div>
 </div>
@@ -217,5 +232,32 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function valCarrera() {
+        // Obtener el valor del campo de texto
+        const descripcion = document.getElementById("descripcion").value.trim();
+        // Obtener el span donde se mostrará el mensaje de error
+        const descripcionError = document.getElementById("descripcionError");
+
+        // Limpiar el mensaje de error previo
+        descripcionError.innerText = "";
+
+        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
+        if (descripcion.length < 1 || descripcion.length > 50) {
+            descripcionError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Verificar que el campo contenga solo letras
+        const soloLetras = /^[a-zA-Z\s]+$/;
+        if (!soloLetras.test(descripcion)) {
+            descripcionError.innerText = " solo puede contener letras.";
+            return false; // Evitar que el formulario se envíe
+        }
+
+        // Si todo está bien, permitir que el formulario se envíe
+        return true;
+    }
+</script>
 </body>
 </html>

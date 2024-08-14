@@ -12,6 +12,21 @@
     <title>Actualizar Grupo</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarGP.css" rel="stylesheet">
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del elemento */
+        }
+        .error-message {
+            color: #d9534f;
+            font-size: 0.875rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -84,15 +99,15 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <div class="container d-flex justify-content-center align-items-center vh-50">
     <div  class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Actualizar Grupo</h2></center>
-<form action="actualizarGrupo" method="post" >
-    <input type="hidden" name="id"  class="form-control" value="${grupo.id_grupo}">
-    <label>Ingrese la nueva descripcion: </label>
-    <br>
-    <input type="text" id="descripcion" name="descripcion"  class="form-control" value="${grupo.descripcion}" required>
-
-    <input type="hidden"  class="form-control" value="${grupo.id_grupo}" name="id_grupo" />
-    <input class="registrar" type="submit" value="Aceptar">
-</form>
+        <form action="actualizarGrupo" method="post" onsubmit="return valGrupo()">
+            <input type="hidden" name="id" class="form-control" value="${grupo.id_grupo}">
+            <label for="descripcion">Ingrese la nueva descripción:</label>
+            <br>
+            <input type="text" id="descripcion" name="descripcion" class="form-control" value="${grupo.descripcion}" required>
+            <span id="descripcionError" class="error-message"></span>
+            <input type="hidden" class="form-control" value="${grupo.id_grupo}" name="id_grupo" />
+            <input class="registrar" type="submit" value="Aceptar">
+        </form>
 <a class="registrar1" href="getListaGrupos">Volver a la lista</a>
         </div>
       </div>
@@ -218,6 +233,30 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+
+<script>
+    function valGrupo() {
+        var descripcion = document.getElementById("descripcion").value;
+        var errorElement = document.getElementById("descripcionError");
+        var regex = /^[A-Za-z0-9\s]+$/; // Permitir letras, números y espacios
+
+        // Resetear mensaje de error
+        errorElement.textContent = '';
+
+        // Verificar longitud
+        if (descripcion.length < 1 || descripcion.length > 40) {
+            errorElement.textContent = 'La descripción debe tener entre 1 y 40 caracteres.';
+            return false; // Evitar el envío del formulario
+        }
+        // Verificar solo letras, números y espacios
+        if (!regex.test(descripcion)) {
+            errorElement.textContent = 'La descripción solo debe contener letras, números y espacios.';
+            return false; // Evitar el envío del formulario
+        }
+
+        return true; // Permitir el envío del formulario
+    }
+</script>
 
 </body>
 </html>
