@@ -9,6 +9,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="utez.edu.mx.sicci.model.Grupo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

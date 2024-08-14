@@ -58,10 +58,12 @@
     <div class="login-box">
         <center><h2>Registrar Materia</h2></center>
         <br>
-        <form id="FormLogin" action="registrarMateria" name="registroMateria" method="post">
+        <form id="FormLogin" action="registrarMateria" name="registroMateria" method="post" onsubmit="return valFormMateria()">
             <div class="user-box">
                 <input type="text" id="nombre_materia" name="nombre_materia" required>
                 <label>Nombre materia:</label>
+                <!-- Span para mostrar el mensaje de error -->
+                <span id="nombreMateriaError" style="color:red"></span>
             </div>
             <input type="submit" class="registrar" value="Registrar">
         </form>
@@ -190,6 +192,38 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+
+<script>
+    function valFormMateria() {
+        // Obtener el valor del campo de texto
+        const nombreMateria = document.getElementById("nombre_materia").value;
+        // Obtener el span donde se mostrará el mensaje de error
+        const errorSpan = document.getElementById("nombreMateriaError");
+
+        // Limpiar el mensaje de error previo
+        errorSpan.innerText = "";
+
+        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
+        if (nombreMateria.length < 1 || nombreMateria.length > 40) {
+            // Mostrar mensaje de error en el span
+            errorSpan.innerText = "El nombre de la materia debe tener entre 1 y 40 caracteres.";
+            // Evitar que el formulario se envíe
+            return false;
+        }
+
+        // Verificar que el campo contenga solo letras
+        const soloLetras = /^[a-zA-Z\s]+$/;
+        if (!soloLetras.test(nombreMateria)) {
+            // Mostrar mensaje de error en el span
+            errorSpan.innerText = "El nombre de la materia debe contener solo letras.";
+            // Evitar que el formulario se envíe
+            return false;
+        }
+
+        // Si todo está bien, permitir que el formulario se envíe
+        return true;
+    }
+</script>
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 </html>
