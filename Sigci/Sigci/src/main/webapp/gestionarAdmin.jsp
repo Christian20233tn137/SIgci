@@ -95,7 +95,7 @@ l-67 7 -143 -106 c-166 -122 -390 -288 -931 -689 l-387 -287 -412 302 c-1098
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="">
+            <a href="getListaAdmin">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
