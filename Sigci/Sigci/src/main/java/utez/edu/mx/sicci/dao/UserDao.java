@@ -19,7 +19,7 @@ public class UserDao {
 
     private static final String SELECT_ALL_DOCENTE = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 2;";
 
-    private static final String SELECT_ALL_ADMIN = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 1;";
+    private static final String SELECT_ALL_ADMIN = "SELECT * from usuario WHERE idtipo_usuario = 1;";
 
     private static final String SELECT_ALL_ASPIRANTES = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 3;";
 
@@ -217,9 +217,6 @@ public class UserDao {
                 u.setNombre_usuario(rs.getString("nombre_usuario"));
                 u.setFecha_creacion(rs.getString("fecha_creacion"));
                 u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
-                u.setId_grupo(rs.getInt("id_grupo"));
-                // Reemplazar el id_division con el nombre de la división
-                u.setDivisionNombre(rs.getString("division_nombre"));
                 usuario.add(u);
             }
         } catch (SQLException e) {

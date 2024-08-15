@@ -61,7 +61,7 @@
         <form action="actu-password" method="post">
             <label>Correo</label>
             <input type="email" name="email">
-            <br>    
+            <br>
             <label>Nueva Contraseña</label>
             <input type="password" name="password">
             <br>
