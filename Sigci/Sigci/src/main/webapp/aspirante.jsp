@@ -17,7 +17,7 @@
         <th>Nombre Completo</th>
         <th>Correo</th>
         <th>Fecha de Creación</th>
-        <th>ID de División</th>
+        <th>Nombre de División</th>
         <th>Estado Usuario</th>
     </tr>
     </thead>
@@ -31,7 +31,7 @@
         <td><%=u.getNombre()%> <%=u.getApellidos()%></td>
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
-        <td style="text-align: center"><%=u.getId_division()%></td>
+        <td style="text-align: center"><%=u.getDivisionNombre()%></td>
         <td style="text-align: center"><%= u.getEstado_usuario() == 1 ? "Aprobado" : "Desaprobado" %></td>
     </tr>
     <% }} %>

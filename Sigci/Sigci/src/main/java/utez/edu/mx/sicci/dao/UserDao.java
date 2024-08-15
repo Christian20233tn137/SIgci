@@ -21,7 +21,7 @@ public class UserDao {
 
     private static final String SELECT_ALL_ADMIN = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 1;";
 
-    private static final String SELECT_ALL_ASPIRANTES = "SELECT * FROM usuario where idtipo_usuario = 3";
+    private static final String SELECT_ALL_ASPIRANTES = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 3;";
 
     private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
@@ -394,8 +394,9 @@ public class UserDao {
                 u.setNombre_usuario(rs.getString("nombre_usuario"));
                 u.setFecha_creacion(rs.getString("fecha_creacion"));
                 u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
-                u.setId_division(rs.getInt("id_division"));
                 u.setId_grupo(rs.getInt("id_grupo"));
+                // Reemplazar el id_division con el nombre de la división
+                u.setDivisionNombre(rs.getString("division_nombre"));
                 usuario.add(u);
             }
         } catch (SQLException e) {
@@ -500,6 +501,17 @@ public class UserDao {
             flag = ps.executeUpdate() > 0;
         }
         return flag;
+    }
+
+    public boolean updatePass(String correo, String newPassword) throws SQLException {
+        String sql = "UPDATE usuario SET password = sha2(?,256) WHERE email = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newPassword);
+            stmt.setString(2, correo);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        }
     }
 }
 

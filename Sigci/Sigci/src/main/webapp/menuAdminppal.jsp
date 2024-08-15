@@ -402,6 +402,7 @@ c99 -100 116 -104 223 -56 79 36 87 53 87 197 l0 104 185 0 185 0 0 -118z"/>
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="card">
+                <a href="actualizarContraseña.jsp">
                 <div class="card-body">
                     <h5 class="card-title">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -457,6 +458,7 @@ c99 -100 116 -104 223 -56 79 36 87 53 87 197 l0 104 185 0 185 0 0 -118z"/>
                     <center>Permite al usuario restablecer su contraseña.</center>
                     </p>
                 </div>
+                </a>
             </div>
         </div>
         <div class="col-md-6 col-lg-4">

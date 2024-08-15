@@ -90,7 +90,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
         <th>Nombre Completo</th>
         <th>Correo</th>
         <th>Fecha de Creación</th>
-        <th>ID de División</th>
+        <th>Nombre de División</th>
         <th>Estado Usuario</th>
         <th>Actualizar</th>
     </tr>
@@ -105,7 +105,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
         <td><%=u.getNombre()%> <%=u.getApellidos()%></td>
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
-        <td><%=u.getId_division()%></td>
+        <td><%=u.getDivisionNombre()%></td>
         <td><%= u.getEstado_usuario() == 1 ? "Aprobado" : "Desaprobado" %></td>
         <td><a href="updateAspirante?id_usuario=<%=u.getId_usuario()%>">
             <button class="styled-button"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
