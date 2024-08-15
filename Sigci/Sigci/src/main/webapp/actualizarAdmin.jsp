@@ -14,7 +14,12 @@
     <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarAdmin.css" rel="stylesheet">
-
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -62,24 +67,32 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Actualizar Administrador</h2></center>
         <br>
-        <form action="actualizarAdmin" method="post" >
+        <form action="actualizarAdmin" method="post" onsubmit="return validarFormulario()">
             <input type="hidden" name="id" class="form-control"  value="${user.id_usuario}">
             <label>Ingrese su nombre: </label>
             <input type="text" id="nombre" name="nombre" class="form-control"  value="${user.nombre}" required>
+            <div id="error-nombre" class="error-message"></div>
             <br>
+
             <label>Ingrese su apellido: </label>
             <input type="text" id="apellidos" name="apellidos" class="form-control"  value="${user.apellidos}" required>
+            <div id="error-apellidos" class="error-message"></div>
             <br>
+
             <label>Ingrese su correo: </label>
             <input type="email" id="email" name="email" class="form-control"  value="${user.email}" required>
             <br>
             <label>Ingrese su curp: </label>
             <br>
             <input type="text" id="curp" name="curp" class="form-control"  value="${user.curp}" required>
+            <div id="error-curp" class="error-message"></div>
             <br>
+
             <label>Ingrese su nombre de usuario: </label>
             <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"  value="${user.nombre_usuario}" required>
+            <div id="error-nombre_usuario" class="error-message"></div>
             <br>
+
             <label>Ingrese su estado: </label>
             <select id="estado_usuario" name="estado_usuario" class="form-select" required>
                 <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
@@ -216,5 +229,44 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function validarFormulario() {
+        let esValido = true;
+
+        // Limpiar mensajes de error anteriores
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+        // Validar nombre
+        const nombre = document.getElementById('nombre').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(nombre)) {
+            document.getElementById('error-nombre').textContent = 'El nombre debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
+            esValido = false;
+        }
+
+        // Validar apellidos
+        const apellidos = document.getElementById('apellidos').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(apellidos)) {
+            document.getElementById('error-apellidos').textContent = 'El apellido debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
+            esValido = false;
+        }
+
+        // Validar CURP
+        let curp = document.getElementById('curp').value.toUpperCase().trim();
+        document.getElementById('curp').value = curp;
+        if (!/^[A-Z0-9]{18}$/.test(curp)) {
+            document.getElementById('error-curp').textContent = 'El CURP debe contener exactamente 18 caracteres alfanuméricos.';
+            esValido = false;
+        }
+
+        // Validar nombre de usuario
+        const nombreUsuario = document.getElementById('nombre_usuario').value.trim();
+        if (!/^[a-zA-Z0-9]{4,16}$/.test(nombreUsuario)) {
+            document.getElementById('error-nombre_usuario').textContent = 'El nombre de usuario debe tener entre 4 y 16 caracteres y contener solo letras y números.';
+            esValido = false;
+        }
+
+        return esValido;
+    }
+</script>
 </body>
 </html>

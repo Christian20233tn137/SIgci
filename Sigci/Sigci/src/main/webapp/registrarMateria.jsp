@@ -196,7 +196,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <script>
     function valFormMateria() {
         // Obtener el valor del campo de texto
-        const nombreMateria = document.getElementById("nombre_materia").value;
+        const nombreMateria = document.getElementById("nombre_materia").value.trim();
         // Obtener el span donde se mostrará el mensaje de error
         const errorSpan = document.getElementById("nombreMateriaError");
 
@@ -211,11 +211,11 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
             return false;
         }
 
-        // Verificar que el campo contenga solo letras
+        // Verificar que el campo contenga solo letras y espacios
         const soloLetras = /^[a-zA-Z\s]+$/;
         if (!soloLetras.test(nombreMateria)) {
             // Mostrar mensaje de error en el span
-            errorSpan.innerText = "El nombre de la materia debe contener solo letras.";
+            errorSpan.innerText = "El nombre de la materia solo puede contener letras y espacios.";
             // Evitar que el formulario se envíe
             return false;
         }

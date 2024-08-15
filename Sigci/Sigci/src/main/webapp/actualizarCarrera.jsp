@@ -244,14 +244,14 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 
         // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
         if (descripcion.length < 1 || descripcion.length > 50) {
-            descripcionError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
+            descripcionError.innerText = "La descripción debe tener entre 1 y 50 caracteres.";
             return false; // Evitar que el formulario se envíe
         }
 
-        // Verificar que el campo contenga solo letras
+        // Verificar que el campo contenga solo letras y espacios
         const soloLetras = /^[a-zA-Z\s]+$/;
         if (!soloLetras.test(descripcion)) {
-            descripcionError.innerText = " solo puede contener letras.";
+            descripcionError.innerText = "La descripción solo puede contener letras y espacios.";
             return false; // Evitar que el formulario se envíe
         }
 

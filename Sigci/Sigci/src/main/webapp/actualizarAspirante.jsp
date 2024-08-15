@@ -262,21 +262,21 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
 
         // Validar nombre
-        const nombre = document.getElementById('nombre').value;
-        if (!/^[a-zA-Z]{1,40}$/.test(nombre)) {
-            document.getElementById('error-nombre').textContent = 'El nombre debe contener solo letras y tener entre 1 y 40 caracteres.';
+        const nombre = document.getElementById('nombre').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(nombre)) {
+            document.getElementById('error-nombre').textContent = 'El nombre debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
             esValido = false;
         }
 
         // Validar apellidos
-        const apellidos = document.getElementById('apellidos').value;
-        if (!/^[a-zA-Z]{1,40}$/.test(apellidos)) {
-            document.getElementById('error-apellidos').textContent = 'El apellido debe contener solo letras y tener entre 1 y 40 caracteres.';
+        const apellidos = document.getElementById('apellidos').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(apellidos)) {
+            document.getElementById('error-apellidos').textContent = 'El apellido debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
             esValido = false;
         }
 
         // Validar CURP
-        let curp = document.getElementById('curp').value.toUpperCase();
+        let curp = document.getElementById('curp').value.toUpperCase().trim();
         document.getElementById('curp').value = curp;
         if (!/^[A-Z0-9]{18}$/.test(curp)) {
             document.getElementById('error-curp').textContent = 'El CURP debe contener exactamente 18 caracteres alfanuméricos.';
@@ -284,7 +284,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         }
 
         // Validar nombre de usuario
-        const nombreUsuario = document.getElementById('nombre_usuario').value;
+        const nombreUsuario = document.getElementById('nombre_usuario').value.trim();
         if (!/^[a-zA-Z0-9]{4,16}$/.test(nombreUsuario)) {
             document.getElementById('error-nombre_usuario').textContent = 'El nombre de usuario debe tener entre 4 y 16 caracteres y contener solo letras y números.';
             esValido = false;
