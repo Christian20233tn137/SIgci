@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #223B87;
+    color: #fff;
+    /*padding: 0px 8px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: inline-block;
+
+    color: white;
+    padding: 9px 9px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 8px;
+    border-color: #5784E6;
+}
+
+.logout-button {
+
+    display: inline-block;
+    background-color: #5784E6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-color: #5784E6;
+
+}
+
+.logout-button:hover{
+    background-color: #57B6E6;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.table-container {
+    display: flex;
+    margin: auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+table {
+
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #96B7D8;
+    color: #000000;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 2px solid #000000;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+.logo {
+    max-width: 100px; /* Ajusta el tamaÃ±o del logo segÃºn sea necesario */
+}
+
+/*Responsivo */
+@media (max-width: 768px) {
+
+    th, td {
+        padding: 5px;
+    }
+}
+.footer{
+    margin-top: 3%;
+
+}
+
+
+
+.styled-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #002DA0;
+    background-color: white;
+    border: 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.styled-button:hover {
+    background-color: #7CF769;
+}
+.styled-button:focus {
+    box-shadow: white;
+}
+
+.styled-button1 {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #002DA0;
+    background-color: white;
+    border: 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.styled-button1:hover {
+    background-color: #7CF769;
+}
+.styled-button1:focus {
+    box-shadow: white;
+}
+
+.volver1{
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #002DA0;
+    background-color: #0B1956 ;
+    border: 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.volver1:hover {
+    background-color: #5884E7;
+}
+.volver1:focus {
+    box-shadow: white;
+}
+
+
+.house {
+    display: inline-block;
+    color: white;
+    padding: 9px 9px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 8px;
+    border-color: #5784E6;
+}
+

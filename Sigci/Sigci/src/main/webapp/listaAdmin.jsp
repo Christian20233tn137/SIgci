@@ -12,7 +12,7 @@
 <head>
     <title>Usuarios</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/listaUsuarios.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/listaAdmin.css" rel="stylesheet">
 </head>
 <body>
 <%
@@ -88,8 +88,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
             <th>Correo</th>
             <th>Fecha de Creación</th>
             <th>Estado Usuario</th>
-            <th> </th>
-            <th> </th>
+            <th>Gestionar Administrador </th>
         </tr>
         </thead>
         <tbody>
@@ -103,7 +102,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
             <td><%=u.getEmail()%></td>
             <td><%=u.getFecha_creacion()%></td>
             <td><%= u.getEstado_usuario() == 1 ? "Habilitado" : "Deshabilitado" %></td>
-            <td><a href="">
+            <td><a href="updateAdmin?id_usuario=<%=u.getId_usuario()%>">
 
                 <button class="styled-button"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                     width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -125,25 +124,6 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
                     </g>
                 </svg></button>
             </a></td>
-            <td><a href="">
-                <button class="styled-button1"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                                     width="20.000000pt" height="20.000000pt" viewBox="0 0 225.000000 225.000000"
-                                                     preserveAspectRatio="xMidYMid meet">
-
-                    <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
-                       fill="#C00000" stroke="none">
-                        <path d="M978 2240 c-167 -20 -373 -103 -514 -208 -616 -459 -616 -1354 0
-       -1814 384 -286 938 -286 1322 0 616 459 616 1354 0 1814 -225 168 -513 242
-       -808 208z m342 -415 c70 -21 150 -56 150 -64 0 -3 -221 -227 -490 -496 -391
-       -391 -492 -487 -500 -475 -19 29 -52 126 -67 195 -21 100 -13 256 20 358 79
-       245 287 435 541 493 80 18 271 12 346 -11z m468 -402 c48 -112 57 -163 56
-       -303 0 -117 -4 -145 -26 -213 -74 -222 -256 -403 -475 -474 -102 -33 -258 -41
-       -358 -20 -69 15 -166 48 -195 67 -12 8 84 109 475 500 269 269 493 490 496
-       490 4 0 16 -21 27 -47z"/>
-                    </g>
-                </svg>
-                </button>
-            </a></td> <!-- Funcionalidad de borrar -->
         </tr>
         <% }} %>
         </tbody>
