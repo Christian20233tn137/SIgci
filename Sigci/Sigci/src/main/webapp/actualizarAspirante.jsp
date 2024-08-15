@@ -12,6 +12,12 @@
     <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarAspirante.css" rel="stylesheet">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -85,32 +91,43 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <div class="container d-flex justify-content-center align-items-center vh-50">
 <div  class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <center><h2>Actualizar Aspirantes</h2></center>
-<form action="actualizarAspirante" method="post" >
-    <input type="hidden" name="id"  class="form-control" value="${user.id_usuario}">
-    <label>Ingrese su nombre: </label>
-    <input type="text" id="nombre" name="nombre" class="form-control"  value="${user.nombre}" required>
-    <br>
-    <label>Ingrese su apellido: </label>
-    <input type="text" id="apellidos" name="apellidos" class="form-control"  value="${user.apellidos}" required>
-    <br>
-    <label>Ingrese su correo: </label>
-    <input type="email" id="email" name="email" class="form-control"  value="${user.email}" required>
-    <br>
-    <label>Ingrese su curp: </label>
-    <input type="text" id="curp" name="curp" class="form-control"  value="${user.curp}" required>
-    <br>
-    <label>Ingrese su nombre de usuario: </label>
-    <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"  value="${user.nombre_usuario}" required>
-    <br>
-    <label>Ingrese su estado: </label>
-    <select type="text" id="estado_usuario" name="estado_usuario" class="form-select"  required>
-    <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Aprobar</option>
-    <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desaprobar</option>
-    </select>
-    <br>
-    <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
-    <input class="registrar" type="submit" value="Aceptar">
-</form>
+    <form action="actualizarAspirante" method="post" onsubmit="return validarFormulario()">
+        <input type="hidden" name="id" class="form-control" value="${user.id_usuario}">
+
+        <label>Ingrese su nombre: </label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="${user.nombre}" required>
+        <div id="error-nombre" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su apellido: </label>
+        <input type="text" id="apellidos" name="apellidos" class="form-control" value="${user.apellidos}" required>
+        <div id="error-apellidos" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su correo: </label>
+        <input type="email" id="email" name="email" class="form-control" value="${user.email}" required>
+        <br>
+
+        <label>Ingrese su curp: </label>
+        <input type="text" id="curp" name="curp" class="form-control" value="${user.curp}" required>
+        <div id="error-curp" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su nombre de usuario: </label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control" value="${user.nombre_usuario}" required>
+        <div id="error-nombre_usuario" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su estado: </label>
+        <select id="estado_usuario" name="estado_usuario" class="form-select" required>
+            <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Aprobar</option>
+            <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desaprobar</option>
+        </select>
+        <br>
+
+        <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
+        <input class="registrar" type="submit" value="Aceptar">
+    </form>
 
 <a class="registrar1" href="getListaAdminAspirantes">Volver a la lista</a>
 </div>
@@ -238,30 +255,42 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     }
 %>
 <script>
-    function valCarrera() {
-        // Obtener el valor del campo de texto
-        const descripcion = document.getElementById("descripcion").value.trim();
-        // Obtener el span donde se mostrará el mensaje de error
-        const descripcionError = document.getElementById("descripcionError");
+    function validarFormulario() {
+        let esValido = true;
 
-        // Limpiar el mensaje de error previo
-        descripcionError.innerText = "";
+        // Limpiar mensajes de error anteriores
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
 
-        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
-        if (descripcion.length < 1 || descripcion.length > 50) {
-            descripcionError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
-            return false; // Evitar que el formulario se envíe
+        // Validar nombre
+        const nombre = document.getElementById('nombre').value;
+        if (!/^[a-zA-Z]{1,40}$/.test(nombre)) {
+            document.getElementById('error-nombre').textContent = 'El nombre debe contener solo letras y tener entre 1 y 40 caracteres.';
+            esValido = false;
         }
 
-        // Verificar que el campo contenga solo letras
-        const soloLetras = /^[a-zA-Z\s]+$/;
-        if (!soloLetras.test(descripcion)) {
-            descripcionError.innerText = " solo puede contener letras.";
-            return false; // Evitar que el formulario se envíe
+        // Validar apellidos
+        const apellidos = document.getElementById('apellidos').value;
+        if (!/^[a-zA-Z]{1,40}$/.test(apellidos)) {
+            document.getElementById('error-apellidos').textContent = 'El apellido debe contener solo letras y tener entre 1 y 40 caracteres.';
+            esValido = false;
         }
 
-        // Si todo está bien, permitir que el formulario se envíe
-        return true;
+        // Validar CURP
+        let curp = document.getElementById('curp').value.toUpperCase();
+        document.getElementById('curp').value = curp;
+        if (!/^[A-Z0-9]{18}$/.test(curp)) {
+            document.getElementById('error-curp').textContent = 'El CURP debe contener exactamente 18 caracteres alfanuméricos.';
+            esValido = false;
+        }
+
+        // Validar nombre de usuario
+        const nombreUsuario = document.getElementById('nombre_usuario').value;
+        if (!/^[a-zA-Z0-9]{4,16}$/.test(nombreUsuario)) {
+            document.getElementById('error-nombre_usuario').textContent = 'El nombre de usuario debe tener entre 4 y 16 caracteres y contener solo letras y números.';
+            esValido = false;
+        }
+
+        return esValido;
     }
 </script>
 </body>
