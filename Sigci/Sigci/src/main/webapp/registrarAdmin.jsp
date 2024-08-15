@@ -323,37 +323,43 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         // Validaciones
         let valid = true;
 
-        if (!/^[a-zA-Z]+$/.test(nombre)) {
-            nombreError.innerText = "El nombre solo puede contener letras.";
+        // Validación para nombre (letras y espacios)
+        if (!/^[a-zA-Z\s]+$/.test(nombre)) {
+            nombreError.innerText = "El nombre solo puede contener letras y espacios.";
             valid = false;
         }
 
-        if (!/^[a-zA-Z]+$/.test(apellidos)) {
-            apellidosError.innerText = "El apellido solo puede contener letras.";
+        // Validación para apellidos (letras y espacios)
+        if (!/^[a-zA-Z\s]+$/.test(apellidos)) {
+            apellidosError.innerText = "El apellido solo puede contener letras y espacios.";
             valid = false;
         }
 
+        // Validación para CURP
         if (curp.length !== 18 || !/^[A-Z0-9]+$/.test(curp)) {
             curpError.innerText = "El CURP debe tener 18 caracteres y solo contener letras mayúsculas y números.";
             valid = false;
         }
 
+        // Validación para la longitud del nombre
         if (nombre.length < 1 || nombre.length > 40) {
             nombreError.innerText = "El nombre debe tener entre 1 y 40 caracteres.";
             valid = false;
         }
 
+        // Validación para la longitud de los apellidos
         if (apellidos.length < 1 || apellidos.length > 40) {
             apellidosError.innerText = "El apellido debe tener entre 1 y 40 caracteres.";
             valid = false;
         }
 
+        // Validación para la longitud del nombre de usuario
         if (nombreUsuario.length < 1 || nombreUsuario.length > 40) {
             nombreUsuarioError.innerText = "El nombre de usuario debe tener entre 1 y 40 caracteres.";
             valid = false;
         }
 
-
+        // Validación para el correo electrónico
         if (!email) {
             emailError.innerText = "El correo electrónico es obligatorio.";
             valid = false;
