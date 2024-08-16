@@ -68,41 +68,46 @@
 <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
     <center><h2>Actualizar Docentes</h2></center>
     <br>
-<form action="actualizarUsuario" method="post" >
-    <input type="hidden" name="id" class="form-control"  value="${user.id_usuario}">
-    <label>Ingrese su nombre: </label>
-    <input type="text" id="nombre" name="nombre" class="form-control"  value="${user.nombre}" required>
-    <div id="error-nombre" class="error-message"></div>
-    <br>
-    <label>Ingrese su apellido: </label>
-    <input type="text" id="apellidos" name="apellidos" class="form-control"  value="${user.apellidos}" required>
-    <div id="error-apellidos" class="error-message"></div>
-    <br>
-    <label>Ingrese su correo: </label>
-    <input type="email" id="email" name="email" class="form-control"  value="${user.email}" required>
-    <div id="error-email" class="error-message"></div>
-    <br>
-    <label>Ingrese su curp: </label>
-    <br>
-    <input type="text" id="curp" name="curp" class="form-control"  value="${user.curp}" required>
-    <div id="error-curp" class="error-message"></div>
-    <br>
-    <label>Ingrese su nombre de usuario: </label>
-    <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"  value="${user.nombre_usuario}" required>
-    <div id="error-nombre_usuario" class="error-message"></div>
-    <br>
-    <label>Ingrese su estado: </label>
-    <select id="estado_usuario" name="estado_usuario" class="form-select" required>
-        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
-        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desabilitar</option>
-    </select>
+    <form action="actualizarUsuario" method="post" onsubmit="return validarFormulario();">
+        <input type="hidden" name="id" class="form-control" value="${user.id_usuario}">
 
+        <label>Ingrese su nombre: </label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="${user.nombre}" required>
+        <div id="error-nombre" class="error-message"></div>
+        <br>
 
-    <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
-    <br>
-    <input  class="registrar" type="submit" value="Aceptar">
-    <a  class="registrar1"  href="getListaDocentes">Volver a la lista</a>
-</form>
+        <label>Ingrese su apellido: </label>
+        <input type="text" id="apellidos" name="apellidos" class="form-control" value="${user.apellidos}" required>
+        <div id="error-apellidos" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su correo: </label>
+        <input type="email" id="email" name="email" class="form-control" value="${user.email}" required>
+        <div id="error-email" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su curp: </label>
+        <input type="text" id="curp" name="curp" class="form-control" value="${user.curp}" required>
+        <div id="error-curp" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su nombre de usuario: </label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control" value="${user.nombre_usuario}" required>
+        <div id="error-nombre_usuario" class="error-message"></div>
+        <br>
+
+        <label>Ingrese su estado: </label>
+        <select id="estado_usuario" name="estado_usuario" class="form-select" required>
+            <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
+            <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Deshabilitar</option>
+        </select>
+
+        <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
+        <br>
+
+        <input class="registrar" type="submit" value="Aceptar">
+        <a class="registrar1" href="getListaDocentes">Volver a la lista</a>
+    </form>
 </div>
 </div>
 <footer class="logo">
