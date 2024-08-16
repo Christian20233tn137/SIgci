@@ -21,6 +21,12 @@
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -67,15 +73,14 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Docentes</h2></center>
         <br>
-        <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
+        <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post" onsubmit="return validarFormulario();">
 
             <div class="mb-3 formulario__grupo" id="grupo__nombre">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <div>
                     <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe el nombre" required>
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <div id="error-nombre" class="error-message"></div>
                 </div>
-                <p class="formulario__input-error">El nombre debe tener entre 1 y 40 caracteres y solo puede contener letras.</p>
             </div>
 
             <br>
@@ -83,9 +88,8 @@
                 <label for="apellidos" class="form-label">Apellidos:</label>
                 <div>
                     <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Escribe el Apellido" required>
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <div id="error-apellidos" class="error-message"></div>
                 </div>
-                <p class="formulario__input-error">Los apellidos deben tener entre 1 y 40 caracteres y solo pueden contener letras.</p>
             </div>
 
             <br>
@@ -99,9 +103,8 @@
                 <label for="curp" class="form-label">CURP:</label>
                 <div>
                     <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe CURP" required>
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <div id="error-curp" class="error-message"></div>
                 </div>
-                <p class="formulario__input-error">El CURP debe contener 18 caracteres, entre letras y números.</p>
             </div>
 
             <br>
@@ -109,9 +112,8 @@
                 <label for="email" class="form-label">Correo Electrónico:</label>
                 <div>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <div id="error-email" class="error-message"></div>
                 </div>
-                <p class="formulario__input-error">El correo debe ser válido y contener "@" y un dominio.</p>
             </div>
 
             <br>
@@ -119,9 +121,8 @@
                 <label for="nombre_usuario" class="form-label">Nombre de Usuario:</label>
                 <div>
                     <input type="text" id="nombre_usuario" name="nombre_usuario" required class="form-control" placeholder="Nombre de Usuario">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <div id="error-nombre_usuario" class="error-message"></div>
                 </div>
-                <p class="formulario__input-error">El nombre de usuario debe tener entre 4 y 16 caracteres y solo puede contener letras, números, guion o guion bajo.</p>
             </div>
 
             <br>
@@ -163,13 +164,6 @@
             <input type="hidden" value="1" name="estado_usuario" />
 
             <br>
-            <div id="formulario__mensaje" class="formulario__mensaje">
-                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor, completa correctamente todos los campos.</p>
-            </div>
-
-            <div id="formulario__mensaje-exito" class="formulario__mensaje">
-                <p><i class="fas fa-check-circle"></i> <b>Éxito:</b> El formulario se ha enviado correctamente.</p>
-            </div>
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">
                 <input type="submit" class="registrar" value="Registrar">
@@ -239,7 +233,6 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         </svg>Re
     </footer>
 </div>
-<script src="<%= request.getContextPath() %>/js/formularios.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 <%
 }else{
@@ -304,5 +297,44 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 <%
     }
 %>
+<script>
+    function validarFormulario() {
+        let esValido = true;
+
+        // Limpiar mensajes de error anteriores
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+        // Validar nombre
+        const nombre = document.getElementById('nombre').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(nombre)) {
+            document.getElementById('error-nombre').textContent = 'El nombre debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
+            esValido = false;
+        }
+
+        // Validar apellidos
+        const apellidos = document.getElementById('apellidos').value.trim();
+        if (!/^[a-zA-Z\s]{1,40}$/.test(apellidos)) {
+            document.getElementById('error-apellidos').textContent = 'El apellido debe contener solo letras y espacios, y tener entre 1 y 40 caracteres.';
+            esValido = false;
+        }
+
+        // Validar CURP
+        let curp = document.getElementById('curp').value.toUpperCase().trim();
+        document.getElementById('curp').value = curp;
+        if (!/^[A-Z0-9]{18}$/.test(curp)) {
+            document.getElementById('error-curp').textContent = 'El CURP debe contener exactamente 18 caracteres alfanuméricos.';
+            esValido = false;
+        }
+
+        // Validar nombre de usuario
+        const nombreUsuario = document.getElementById('nombre_usuario').value.trim();
+        if (!/^[a-zA-Z0-9]{4,16}$/.test(nombreUsuario)) {
+            document.getElementById('error-nombre_usuario').textContent = 'El nombre de usuario debe tener entre 4 y 16 caracteres y contener solo letras y números.';
+            esValido = false;
+        }
+
+        return esValido;
+    }
+</script>
 </body>
 </html>
