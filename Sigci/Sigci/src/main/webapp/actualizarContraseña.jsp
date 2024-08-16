@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Materia</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarMateria.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/actContra.css" rel="stylesheet">
 </head>
 <body>
 <%
@@ -53,24 +53,28 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-
-<div class="container">
-    <div class="login-box">
+<br>
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Actualizar Contraseña</h2></center>
         <br>
-        <form action="actu-password" method="post">
+        <form class="form-group" action="actu-password" method="post">
+            <div class="mb-3">
             <label>Correo</label>
-            <input type="email" name="email">
+            <input class="form-control" type="email" name="email">
+            </div>
             <br>
+            <div class="mb-3">
             <label>Nueva Contraseña</label>
-            <input type="password" name="password">
+            <input class="form-control" type="password" name="password">
+            </div>
             <br>
-            <input type="submit" value="enviar">
+            <input class="enviar" type="submit" value="enviar">
         </form>
     </div>
     <footer class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-             width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+             width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
              preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
                fill="#000000" stroke="none">

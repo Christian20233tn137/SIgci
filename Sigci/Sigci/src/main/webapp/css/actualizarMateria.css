@@ -99,7 +99,7 @@ a {
     overflow: hidden;
     transition: .5s;
     margin: 10px auto;
-    right: 25%;
+    right: -25%;
     letter-spacing: 4px;
     border: none;
     outline: none;
@@ -146,8 +146,8 @@ a {
 .logo{
     content: " ";
     position: absolute;
-    right: 90%;
+    right: 93%;
     z-index: 1;
-    top: 80%;
+    top: 85%;
 
 }

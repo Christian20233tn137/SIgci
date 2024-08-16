@@ -92,12 +92,12 @@ body {
     color: #bdb8b8;
     font-size: 12px;
 }
-.registrar{
+.enviar{
     border: none;
     outline: none;
 }
 
-.registrar{
+.enviar{
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -108,13 +108,13 @@ body {
     overflow: hidden;
     transition: .5s;
     margin: 10px auto;
-    right: -23%;
+    right: -25%;
     letter-spacing: 4px;
     border: none;
     outline: none;
 }
 
-.registrar:hover {
+.enviar:hover {
     background: #5784E6;
     color: #fff;
     border-radius: 10px;

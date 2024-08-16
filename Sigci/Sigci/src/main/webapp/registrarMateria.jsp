@@ -53,15 +53,16 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-
-<div class="container">
-    <div class="login-box">
+<br>
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Materia</h2></center>
         <br>
-        <form id="FormLogin" action="registrarMateria" name="registroMateria" method="post" onsubmit="return valFormMateria()">
-            <div class="user-box">
-                <input type="text" id="nombre_materia" name="nombre_materia" required>
+        <form class="form-group" id="FormLogin" action="registrarMateria" name="registroMateria" method="post" onsubmit="return valFormMateria()">
+            <div class="mb-3">
                 <label>Nombre materia:</label>
+                <input  class="form-control" type="text" id="nombre_materia" name="nombre_materia" required>
+
                 <!-- Span para mostrar el mensaje de error -->
                 <span id="nombreMateriaError" style="color:red"></span>
             </div>
@@ -70,7 +71,7 @@
     </div>
     <footer class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-             width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+             width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
              preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
                fill="#000000" stroke="none">
