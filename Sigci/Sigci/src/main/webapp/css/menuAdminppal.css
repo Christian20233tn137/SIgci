@@ -117,10 +117,7 @@ header {
     display: flex;
 }
 
-.footer{
-    margin-top: 100px;
 
-}
 
 /* Media query para pantallas pequeñas */
 @media screen and (max-width: 768px) {
@@ -171,4 +168,12 @@ header {
     text-align: center;
 }
 
+.logo{
+    content: " ";
+    position: absolute;
+    right: 93%;
+    z-index: 1;
+    top: 85%;
+
+}
 

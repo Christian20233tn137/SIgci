@@ -512,7 +512,7 @@ m79 -327 c133 -58 209 -95 203 -101 -6 -6 -87 0 -216 16 -113 14 -212 24 -220
     </div>
 </div>
 
-<footer class="footer">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
          preserveAspectRatio="xMidYMid meet">

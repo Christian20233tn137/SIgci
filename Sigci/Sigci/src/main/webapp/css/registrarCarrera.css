@@ -86,7 +86,7 @@ a {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin: 50px auto;
+    margin: 10px auto;
     right: -23%;
     letter-spacing: 4px;
     border: none;
@@ -107,8 +107,8 @@ a {
 .logo{
     content: " ";
     position: absolute;
-    right: 90%;
+    right: 93%;
     z-index: 1;
-    top: 80%;
+    top: 85%;
 
 }

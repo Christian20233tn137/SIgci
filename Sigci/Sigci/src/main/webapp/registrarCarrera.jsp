@@ -60,15 +60,16 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Carreras</h2></center>
         <br>
-        <form class="user-box" id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post" onsubmit="return valCarrera()">
-            <div class="col-4">
-                <input type="text" id="descripcion" name="descripcion" required>
-                <label for="descripcion">Nombre</label>
+        <form  class="form-group" id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post" onsubmit="return valCarrera()">
+            <div class="mb-3">
+                <label  for="descripcion">Nombre</label>
+                <input class="form-control" type="text" id="descripcion" name="descripcion" required>
                 <span id="descripcionError" style="color:red"></span>
             </div>
             <br>
-            <div class="col-4 fs-5">
-                <select name="id_division" id="id_division" class="input" required>
+            <div  class="col-11 justify-content-center">
+                <center> <label for="id_division">Selecciona la división Academica:</label>
+                <select class="form-select w-70" name="id_division" id="id_division" class="input" required>
                     <%
                         List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
                         if (divisionList != null){
@@ -79,7 +80,7 @@
                             }
                         }
                     %>
-                </select>
+                </select></center>
             </div>
             <br>
             <input type="submit" class="registrar" value="Registrar">
@@ -88,7 +89,7 @@
 </div>
 <footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-         width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+         width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">
