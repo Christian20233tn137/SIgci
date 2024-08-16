@@ -89,7 +89,6 @@
                 <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
                 <span id="emailError" style="color:red"></span>
             </div>
-            <br>
             <div class="mb-3  d-flex justify-content-center align-items-center">
                 <label for="nombre_usuario">Nombre de Usuario:</label>
                 <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control" placeholder="Nombre de Usuario" required>

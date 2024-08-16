@@ -10,6 +10,11 @@ body {
     line-height: 1.6;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 /* clase del nombre Administrador */
 .user {
     display: inline-block;
@@ -160,4 +165,18 @@ header {
         margin-top: 10px;
         width: 100%;
     }
+}
+
+.card-text{
+    text-align: center;
+}
+
+
+
+.logo{
+    content: " ";
+    position: absolute;
+    right: 93%;
+    z-index: 1;
+    top: 85%;
 }

@@ -68,9 +68,9 @@
         <center><h2>Registrar Grupos</h2></center>
         <br>
         <form class="form-group" id="FormLogin" action="registrarGrupo" name="registroGrupo" method="post" onsubmit="return valGrupo()">
-            <div class="user-box">
-                <input type="text" id="descripcion" name="descripcion" required>
-                <label for="descripcion">Descripción</label>
+            <div class="mb-3 col-md-10" >
+                <label for="descripcion">Descripción:</label>
+                <input class="form-control" type="text" id="descripcion" name="descripcion" placeholder="Ingresa el grupo" required>
                 <span id="descripcionError" class="error-message"></span>
             </div>
             <input type="submit" class="registrar" value="Registrar">
@@ -79,7 +79,7 @@
 </div>
 <footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-         width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+         width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">

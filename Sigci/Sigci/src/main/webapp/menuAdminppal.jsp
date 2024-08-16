@@ -344,7 +344,7 @@ c99 -100 116 -104 223 -56 79 36 87 53 87 197 l0 104 185 0 185 0 0 -118z"/>
                         <center>Registrar grupos</center>
                     </h5>
                     <p class="card-text">
-                    <center>Permite administrar la gestión de grupos.</center>
+                    <center>Permite administrar los grupos del curso.</center>
                     </p>
                 </div>
             </div>
@@ -394,7 +394,7 @@ c99 -100 116 -104 223 -56 79 36 87 53 87 197 l0 104 185 0 185 0 0 -118z"/>
                         <center>Gestionar materias</center>
                     </h5>
                     <p class="card-text">
-                    <center>Permite administrar las materias.</center>
+                    <center>Permite administrar las materias del curso.</center>
                     </p>
                 </div>
             </a>

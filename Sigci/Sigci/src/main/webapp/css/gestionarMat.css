@@ -54,9 +54,6 @@ header {
     align-items: center;
 }
 
-.logo {
-    max-width: 100px; /* Ajusta el tamaño del logo según sea necesario */
-}
 
 .img-menu{
     padding: 0;
@@ -165,4 +162,12 @@ header {
         margin-top: 10px;
         width: 100%;
     }
+}
+
+.logo{
+    content: " ";
+    position: absolute;
+    right: 93%;
+    z-index: 1;
+    top: 85%;
 }

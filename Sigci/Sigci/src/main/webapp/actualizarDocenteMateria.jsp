@@ -15,7 +15,7 @@
 <head>
     <title>Actualizar</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/actDocMat.css" rel="stylesheet">
 
 </head>
 <body>
@@ -61,13 +61,14 @@
 
 
 <br>
-<div class="login-box">
-    <form action="actualizarDocenteMateria" method="post" >
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
+    <form action="actualizarDocenteMateria" method="post">
         <input type="hidden" name="id_asignacion" value="<%=id_asignacion%>">
         <center><h2>Actualizar Docentes y Materias</h2></center>
-        <label>Ingrese el nombre del su Docente: </label>
-        <div class="col-4">
-        <select name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
+        <label>Selecciona el nombre del su Docente: </label>
+        <div class="col-11 justify-content-center">
+        <select class="form-select" name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
             <<%
             List<User> docenteList = (List<User>) request.getAttribute("lista_docente");
             if (docenteList != null){
@@ -81,9 +82,9 @@
         </select>
     </div>
     <br>
-
-    <div class="col-4">
-    <select name="materia_id_materia" id="materia_id_materia" class="input" required>
+    <div class="col-11 justify-content-center">
+        <label>Selecciona la materia: </label>
+    <select class="form-select" name="materia_id_materia" id="materia_id_materia" class="input" required>
         <<%
                     List<Materia> materiaList = (List<Materia>) request.getAttribute("lista_materia");
                     if (materiaList != null){
@@ -98,12 +99,15 @@
     </div>
         <br>
         <input  class="registrar" type="submit" value="Aceptar">
-        <a  class="registrar"   href="getListaDocentes">Volver a la lista</a>
+        <br>
+        <br>
+        <a class="registrar1"   href="getListaDocentes">Volver a la lista</a>
     </form>
+    </div>
 </div>
-<div class="logo">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-         width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+         width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">
@@ -159,7 +163,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
             <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
         </g>
     </svg>
-</div>
+</footer>
 <%
 }else{
 %>

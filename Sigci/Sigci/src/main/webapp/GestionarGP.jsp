@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu administrador</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/menuAdminppal.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/GestionarGP.css">
 </head>
 <body>
 <%
@@ -100,7 +100,9 @@
                    26 27 28 30 4 30 42 0 46 -14 2 -23 10 -23 21 0 16 -18 41 -30 41 -3 0 -11 -5
                    -18 -12z"/>
                         </g>
-                    </svg>  <br>Registrar Grupos</h5>
+                    </svg>
+                        <br> <center> Registrar Grupos </center>
+                    </h5>
                     <p class="card-text">Permite administrar los solicitantes en el sistema.</p>
                 </div>
             </div>
@@ -173,7 +175,7 @@
     </div>
 </div>
 
-<footer class="footer"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+<footer class="logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
                             preserveAspectRatio="xMidYMid meet">
 

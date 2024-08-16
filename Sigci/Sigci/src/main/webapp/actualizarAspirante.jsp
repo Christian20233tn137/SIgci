@@ -98,7 +98,6 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
         <input type="text" id="nombre" name="nombre" class="form-control" value="${user.nombre}" required>
         <div id="error-nombre" class="error-message"></div>
         <br>
-
         <label>Ingrese su apellido: </label>
         <input type="text" id="apellidos" name="apellidos" class="form-control" value="${user.apellidos}" required>
         <div id="error-apellidos" class="error-message"></div>

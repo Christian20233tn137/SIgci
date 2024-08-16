@@ -148,7 +148,7 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
     </div>
 </div>
 
-<footer class="footer">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
          preserveAspectRatio="xMidYMid meet">

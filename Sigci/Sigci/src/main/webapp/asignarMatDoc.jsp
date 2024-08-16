@@ -66,8 +66,8 @@
         <center><h2>Asignar Materias a Docente</h2></center>
         <br>
         <form id="FormLogin" action="asignarMateriaDocente" name="asignarMateriaDocente" method="post">
-            <div class="col-4">
-                <select name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
+            <div class="col-11 justify-content-center">
+                <select class="form-select" name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
                     <<%
                     List<User> usuarioList = (List<User>) request.getAttribute("lista_user");
                     if (usuarioList != null){
@@ -82,8 +82,8 @@
             </div>
             <br>
 
-            <div class="col-4">
-                <select name="materia_id_materia" id="materia_id_materia" class="input" required>
+            <div class="col-11 justify-content-center">
+                <select  class="form-select" name="materia_id_materia" id="materia_id_materia" class="input" required>
                     <<%
                     List<Materia> materiaList = (List<Materia>) request.getAttribute("lista_materia");
                     if (materiaList != null){
@@ -100,7 +100,7 @@
         </form>
     </div>
 </div>
-<div class="logo">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
          preserveAspectRatio="xMidYMid meet">
@@ -158,7 +158,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
             <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
         </g>
     </svg>
-</div>
+</footer>
 
 <script src="<%= request.getContextPath() %>/js/enlaces.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
@@ -197,7 +197,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     <h1>Sesión Expirada</h1>
     <br>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-         width="200.000000pt" height="100.000000pt" viewBox="0 0 512.000000 512.000000"
+         width="60.000000pt" height="50.000000pt" viewBox="0 0 512.000000 512.000000"
          preserveAspectRatio="xMidYMid meet">
 
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
