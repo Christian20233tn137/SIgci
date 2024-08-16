@@ -117,8 +117,12 @@ header {
     display: flex;
 }
 
-.footer{
-    margin-top: 3%;
+.logo{
+    content: " ";
+    position: absolute;
+    right: 92%;
+    z-index: 1;
+    top: 85%;
 
 }
 

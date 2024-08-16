@@ -149,12 +149,15 @@ form {
 }
 
 
+
+
+
 .logo{
     content: " ";
     position: absolute;
-    right: 95%;
+    right: 92%;
     z-index: 1;
-    top: 105%;
+    top: 120%;
 
 }
 

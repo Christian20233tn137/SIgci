@@ -222,7 +222,7 @@ l-148 3 0 -2161z"/>
     </div>
 </div>
 
-<footer class="footer"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+<footer class="logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
                             preserveAspectRatio="xMidYMid meet">
 

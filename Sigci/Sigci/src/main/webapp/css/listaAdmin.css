@@ -93,8 +93,12 @@ td {
         padding: 5px;
     }
 }
-.footer{
-    margin-top: 3%;
+.logo{
+    content: " ";
+    position: absolute;
+    right: 93%;
+    z-index: 1;
+    top: 83%;
 
 }
 

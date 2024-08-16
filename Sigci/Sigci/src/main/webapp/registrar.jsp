@@ -79,9 +79,9 @@
             </div>
 
             <br>
-            <div class="mb-3 formulario__grupo" id="grupo__apellidos">
+            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__apellidos">
                 <label for="apellidos" class="form-label">Apellidos:</label>
-                <div>
+                <div class=" mb-3 d-flex justify-content-center align-items-cente">
                     <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Escribe el Apellido" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
@@ -89,13 +89,13 @@
             </div>
 
             <br>
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-center align-items-cente">
                 <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="Fecha nacimiento" required>
             </div>
 
             <br>
-            <div class="mb-3 formulario__grupo" id="grupo__curp">
+            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__curp">
                 <label for="curp" class="form-label">CURP:</label>
                 <div>
                     <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe CURP" required>
@@ -105,7 +105,7 @@
             </div>
 
             <br>
-            <div class="mb-3 formulario__grupo" id="grupo__email">
+            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__email">
                 <label for="email" class="form-label">Correo Electrónico:</label>
                 <div>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
