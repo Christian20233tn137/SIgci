@@ -7,11 +7,17 @@
     <title>Usuarios</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaAspirante.css" rel="stylesheet">
+    <script src="<%= request.getContextPath() %>/js/seekerAdmin.js"></script>
 
 </head>
 <body>
+<br>
+<div>
+    <label >Buscar:</label>
+    <input  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
+</div>
 <center>
-<table>
+<table id="VistAspirante">
     <thead>
     <tr>
         <th>Nombre Completo</th>

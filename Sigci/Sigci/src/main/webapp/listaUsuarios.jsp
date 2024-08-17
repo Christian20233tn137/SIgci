@@ -13,6 +13,7 @@
     <title>Usuarios</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaUsuarios.css" rel="stylesheet">
+    <script src="<%= request.getContextPath() %>/js/seekerUsuario.js"></script>
 </head>
 <body>
 <%
@@ -80,8 +81,13 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     </div>
 <a class="logout-button" href="logout">Salir</a>
 </header>
+<br>
+<div>
+    <label >Buscar:</label>
+    <input  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
+</div>
 <center>
-<table>
+<table id="listaUser">
     <thead>
     <tr>
         <th>Nombre Completo</th>
