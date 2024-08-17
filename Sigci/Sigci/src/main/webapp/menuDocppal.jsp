@@ -84,7 +84,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
                         <center>Gestionar aspirantes</center>
                     </h5>
                     <p class="card-text">
-                    <center>Permite asignar aprobación a los aspirantes en el sistema.</center>
+                    <center>Permite asignar aprobación a los aspirantes.</center>
                     </p>
                 </div>
             </div>
@@ -212,7 +212,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
         </div>
     </div>
 </div>
-<footer class="footer">
+<footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
          preserveAspectRatio="xMidYMid meet">
