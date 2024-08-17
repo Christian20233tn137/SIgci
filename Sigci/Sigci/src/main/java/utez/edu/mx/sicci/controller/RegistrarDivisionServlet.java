@@ -24,8 +24,8 @@ public class RegistrarDivisionServlet extends HttpServlet {
         // Se llama al DAO para insertar
 
         DivisionDao dao = new DivisionDao();
-        if (dao.insert(division)){
-            resp.sendRedirect("index.jsp");
+        if (dao.insertDiv(division)){
+            resp.sendRedirect("menuAdminppal.jsp");
         }else{
             // La info no a sido insertada y regresa al formulario
             HttpSession session = req.getSession();

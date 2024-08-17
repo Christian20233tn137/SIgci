@@ -1,8 +1,6 @@
 package utez.edu.mx.sicci.dao;
 
-import utez.edu.mx.sicci.model.Carrrera;
 import utez.edu.mx.sicci.model.Division;
-import utez.edu.mx.sicci.model.Grupo;
 import utez.edu.mx.sicci.model.Usuario_has_Materia;
 import utez.edu.mx.sicci.utils.DatabaseConnectionManager;
 
@@ -13,8 +11,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
+
 public class DivisionDao {
     private static final String SELECT_ALL_DIVISION = "SELECT * FROM division";
+
+    private static final String SELECT_DIVISION_BY_ID = "select id_division, nombre from division where id_division = ?";
+
 
     public List<Division> getAllDivision() {
         List<Division> division = new ArrayList<>();
@@ -33,7 +36,7 @@ public class DivisionDao {
         return division;
     }
 
-    public boolean insert (Division division){
+    public boolean insertDiv (Division division){
         boolean flag = false;
         String query = "INSERT INTO division(id_division, nombre) values(?,?)";
 
@@ -67,6 +70,46 @@ public class DivisionDao {
             }
         }catch(SQLException e){
             e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public boolean updateDivision(Division division) throws SQLException {
+        boolean flag;
+        String query = "UPDATE division SET nombre = ? WHERE id_division = ?";
+        try (Connection con = DatabaseConnectionManager.getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, division.getNombre());
+            ps.setInt(2, division.getId_division());
+            flag = ps.executeUpdate() > 0;
+        }
+        return flag;
+    }
+
+    public Division selectDivision(int id_division) {
+        Division division = null;
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(SELECT_DIVISION_BY_ID)) {
+            ps.setInt(1, id_division);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String nombre = rs.getString("nombre");
+                division = new Division(id_division, nombre);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return division;
+    }
+
+    public boolean deleteDiv(int id_division) throws SQLException{
+        boolean flag;
+        String query = "DELETE FROM divison WHERE id_division = ?";
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(query)){
+            ps.setInt(1, id_division);
+            flag = ps.executeUpdate()>0;
         }
         return flag;
     }
