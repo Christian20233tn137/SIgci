@@ -105,7 +105,7 @@ public class DivisionDao {
 
     public boolean deleteDiv(int id_division) throws SQLException{
         boolean flag;
-        String query = "DELETE FROM divison WHERE id_division = ?";
+        String query = "DELETE FROM division WHERE id_division = ?";
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement(query)){
             ps.setInt(1, id_division);
