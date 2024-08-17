@@ -73,6 +73,7 @@
             </div>
             <br>
             <input type="hidden" name="email" value="${user.email}">
+            <input type="hidden" name="tipo_usuario" value="${user.idtipo_usuario}">
             <input class="enviar" type="submit" value="enviar">
         </form>
     </div>
