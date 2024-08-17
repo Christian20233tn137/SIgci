@@ -15,9 +15,10 @@
        <br>
 <form action="recovery-code" method="post">
   <label class="form-label" for="correo"></label>
-  <input  type="email" id="correo" name="correo" class="form-control" placeholder="Corre Electronico">
-</form>
+    <input  type="email" id="correo" name="correo" class="form-control" placeholder="Corre Electronico">
     <input class="boton" type="submit" value="Enviar">
+</form>
+
 </div>
 </div>
 
