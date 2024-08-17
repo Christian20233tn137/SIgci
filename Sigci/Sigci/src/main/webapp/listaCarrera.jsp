@@ -127,7 +127,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
             </svg></button>
 
         </a></td> <!-- Funcionalidad de actualizar -->
-        <td><a href="borrarCarrera?idcarrrera=<%=c.getIdcarrrera()%>">
+        <td><a onclick="return confirmDelete();" href="borrarCarrera?idcarrrera=<%=c.getIdcarrrera()%>">
             <button class="styled-button2">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                      width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -299,6 +299,10 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
     </g>
 </svg>
 </footer>
-
+<script>
+    function confirmDelete() {
+        return confirm("¿Estás seguro de que deseas eliminar este registro?");
+    }
+</script>
 </body>
 </html>
