@@ -173,3 +173,9 @@ tr:nth-child(even) {
 }
 
 
+.buscar{
+    content: " ";
+    position: absolute;
+    right: 90%;
+    z-index: 1;
+}

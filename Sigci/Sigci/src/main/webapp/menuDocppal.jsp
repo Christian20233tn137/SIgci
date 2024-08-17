@@ -91,7 +91,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="">
+            <a href="actualizarPassdoc.jsp">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -159,7 +159,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
                            -864 15 -897 -2z"/>
                                 </g>
                             </svg>
-                            <center>Gestionar Contraseña</center>
+                            <center>Actualizar Contraseña</center>
                         </h5>
                         <p class="card-text">
                         <center>Permite Cambiar la contraseña.</center>
@@ -169,7 +169,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="actualizarPassdoc.jsp">
+            <a href="">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
