@@ -58,17 +58,21 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Actualizar Contraseña</h2></center>
         <br>
+
         <form class="form-group" action="actu-password" method="post">
             <div class="mb-3">
-            <label>Correo</label>
-            <input class="form-control" type="email" name="email">
+                <label>Nueva contraseña</label>
+                <input class="form-control" type="password" name="password" id="password" autocomplete="new-password">
+                <div id="passwordError" style="color: red;"></div>
             </div>
             <br>
             <div class="mb-3">
-            <label>Nueva Contraseña</label>
-            <input class="form-control" type="password" name="password">
+                <label>Repetir Contraseña</label>
+                <input class="form-control" type="password" name="newPassword" id="newPassword" autocomplete="off">
+                <div id="newPasswordError" style="color: red;"></div>
             </div>
             <br>
+            <input type="hidden" name="email" value="${user.email}">
             <input class="enviar" type="submit" value="enviar">
         </form>
     </div>
@@ -198,35 +202,40 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
 %>
 
 <script>
-    function valFormMateria() {
-        // Obtener el valor del campo de texto
-        const nombreMateria = document.getElementById("nombre_materia").value;
-        // Obtener el span donde se mostrará el mensaje de error
-        const errorSpan = document.getElementById("nombreMateriaError");
+    const form = document.querySelector('form');
+    const password = document.getElementById('password');
+    const newPassword = document.getElementById('newPassword');
+    const passwordError = document.getElementById('passwordError');
+    const newPasswordError = document.getElementById('newPasswordError');
 
-        // Limpiar el mensaje de error previo
-        errorSpan.innerText = "";
+    form.addEventListener('submit', function(event) {
+        let valid = true;
+        passwordError.textContent = '';
+        newPasswordError.textContent = '';
 
-        // Verificar que el campo no esté vacío y cumpla con la longitud mínima y máxima
-        if (nombreMateria.length < 1 || nombreMateria.length > 40) {
-            // Mostrar mensaje de error en el span
-            errorSpan.innerText = "El nombre de la materia debe tener entre 1 y 40 caracteres.";
-            // Evitar que el formulario se envíe
-            return false;
+        // Validación 1: Longitud mínima y al menos un número
+        const regex = /^(?=.*\d)[A-Za-z\d\W_]{8,}$/;
+        if (!regex.test(password.value)) {
+            passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres y contener al menos un número.';
+            valid = false;
         }
 
-        // Verificar que el campo contenga solo letras
-        const soloLetras = /^[a-zA-Z\s]+$/;
-        if (!soloLetras.test(nombreMateria)) {
-            // Mostrar mensaje de error en el span
-            errorSpan.innerText = "El nombre de la materia debe contener solo letras.";
-            // Evitar que el formulario se envíe
-            return false;
+        // Validación 2: Prevenir espacios al inicio o al final
+        if (password.value.trim() !== password.value) {
+            passwordError.textContent = 'La contraseña no debe contener espacios al inicio o al final.';
+            valid = false;
         }
 
-        // Si todo está bien, permitir que el formulario se envíe
-        return true;
-    }
+        // Validación 3: Comparar que ambas contraseñas coincidan
+        if (password.value !== newPassword.value) {
+            newPasswordError.textContent = 'Las contraseñas no coinciden.';
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault(); // Prevenir el envío del formulario si hay errores
+        }
+    });
 </script>
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
