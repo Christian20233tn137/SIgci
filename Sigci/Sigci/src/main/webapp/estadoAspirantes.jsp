@@ -112,8 +112,8 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
             <td><%= us.getFecha_creacion() %></td>
             <td><%= us.getDivisionNombre() %></td>
             <td><%= us.getEstado_usuario() == 1 ? "Aprobado" : "Desaprobado" %></td>
-            <td><button type="button" class="btn btn-primary btn-success " href="aprobarAspirante?id_usuario=<%= us.getId_usuario() %>">Aprobar</button></td>
-            <td><button type="button" class="btn btn-primary btn-danger" href="desaprobarAspirante?id_usuario=<%= us.getId_usuario() %>">Desaprobar</button></td>
+            <td><a href="aprobarAspirante?id_usuario=<%= us.getId_usuario() %>"><button type="button" class="btn btn-primary btn-success " >Aprobar</button></a></td>
+            <td><a href="desaprobarAspirante?id_usuario=<%= us.getId_usuario() %>"><button type="button" class="btn btn-primary btn-danger" >Desaprobar</button></a></td>
         </tr>
         <% }} %>
         </tbody>
