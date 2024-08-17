@@ -13,8 +13,7 @@
     <title>Gestionar Aspirantes</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaAspirante.css" rel="stylesheet">
-
-
+    <script src="<%= request.getContextPath() %>/js/seekerAspirante.js"></script>
 </head>
 <body>
 <%
@@ -82,9 +81,15 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-<h2>Gestionar Aspirantes</h2>
+<br>
+<div>
+    <label >Buscar:</label>
+    <input  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
+</div>
+
 <center>
-<table>
+    <h2>Gestionar Aspirantes</h2>
+<table id="listaAspirante">
     <thead>
     <tr>
         <th>Nombre Completo</th>
