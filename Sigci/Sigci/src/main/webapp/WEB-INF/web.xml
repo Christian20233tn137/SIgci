@@ -134,5 +134,10 @@
         <filter-name>DocFilter</filter-name>
         <url-pattern>/estadoAspirantes.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>DocFilter</filter-name>
+        <url-pattern>/actualizarPassdoc.jsp</url-pattern> <!-- Aplica el filtro a registrar.jsp -->
+    </filter-mapping>
+
     
 </web-app>
