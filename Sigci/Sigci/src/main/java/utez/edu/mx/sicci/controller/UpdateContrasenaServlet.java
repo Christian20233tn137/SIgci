@@ -24,12 +24,15 @@ public class UpdateContrasenaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String correo = request.getParameter("email");
         String newPassword = request.getParameter("password");
+        int tipoUsuario = Integer.parseInt(request.getParameter("tipo_usuario"));
 
         try {
             boolean success = userDao.updatePass(correo, newPassword);
-            if (success) {
+            if (success && tipoUsuario == 1) {
                 response.sendRedirect("menuAdminppal.jsp");
-            } else {
+            } else if(success && tipoUsuario == 2){
+                response.sendRedirect("menuDocppal.jsp");
+            }else {
                 response.sendRedirect(request.getContextPath() + "/views/ResetPassword.jsp?error=true");
             }
         } catch (SQLException e) {
