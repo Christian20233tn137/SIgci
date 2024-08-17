@@ -74,8 +74,8 @@
         <input type="text" id="nombre_materia" name="nombre_materia" class="form-control" value="${materia.nombre_materia}" required>
         <span id="nombreMateriaError" class="error-message"></span>
         <input type="hidden" value="${materia.id_materia}" name="id_materia">
+        <input class="registrar" type="submit" value="Aceptar">
     </form>
-    <input type="submit" class="registrar" value="Aceptar">
     <a class="registrar1" href="getListaMaterias">Volver a la lista</a>
 </div>
 </div>

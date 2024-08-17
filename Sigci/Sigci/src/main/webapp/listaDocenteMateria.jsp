@@ -122,7 +122,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
                     </g>
                 </svg></button>
             </a></td> <!-- Funcionalidad de actualizar -->
-            <td><a href="borrarUsuario?id_usuario=<%=um.getUsuario_id_usuario()%>">
+            <td><a href="borrarAsignacion?id_asignacion=<%=um.getId_asignacion()%>">
                 <button class="styled-button1"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                      width="20.000000pt" height="20.000000pt" viewBox="0 0 225.000000 225.000000"
                                                      preserveAspectRatio="xMidYMid meet">

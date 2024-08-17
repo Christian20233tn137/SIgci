@@ -510,5 +510,16 @@ public class UserDao {
             return rowsUpdated > 0;
         }
     }
+
+    public boolean deleteAsig(int id_asignacion) throws SQLException{
+        boolean flag;
+        String query = "DELETE FROM usuario_has_materia WHERE id_asignacion = ?";
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(query)){
+            ps.setInt(1, id_asignacion);
+            flag = ps.executeUpdate()>0;
+        }
+        return flag;
+    }
 }
 
