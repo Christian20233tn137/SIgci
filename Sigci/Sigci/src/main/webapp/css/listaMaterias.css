@@ -72,7 +72,7 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 thead {
-    background-color: #00796b;
+    background-color: #007bff;
     color: white;
 }
 
@@ -83,7 +83,7 @@ th, td {
 
 th {
     font-weight: bold;
-    text-transform: uppercase;
+
 }
 
 tbody tr:nth-child(even) {
