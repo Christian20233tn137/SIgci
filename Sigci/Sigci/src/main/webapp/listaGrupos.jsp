@@ -82,8 +82,10 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     <a class="logout-button" href="logout">Salir</a>
 </header>
 <br>
-<div class="buscar">
-    <label class="mr-2" ><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+<div class="container mt-3">
+    <div class="row">
+<div class="col-12 d-flex justify-content-start">
+    <label ><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                  width="40.000000pt" height="30.000000pt" viewBox="0 0 512.000000 512.000000"
                  preserveAspectRatio="xMidYMid meet">
 
@@ -106,6 +108,9 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     </svg></label>
     <input class="form-control"  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
 </div>
+    </div>
+</div>
+<br>
 <center>
 <table id="descripcion">
     <thead>
