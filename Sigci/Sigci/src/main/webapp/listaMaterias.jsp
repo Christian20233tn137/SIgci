@@ -14,7 +14,7 @@
     <title>Materias</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaMaterias.css" rel="stylesheet">
-    <script src="<%= request.getContextPath() %>/js/seekerAdmin.js"></script>
+    <script src="<%= request.getContextPath() %>/js/seekerMateria.js"></script>
 
 </head>
 <body>
@@ -89,7 +89,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     <input  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
 </div>
 <center>
-<table id="listaMateria">
+<table id="listMateria">
     <thead>
     <tr>
         <th>Descripcion</th>
