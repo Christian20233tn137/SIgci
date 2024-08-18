@@ -1,0 +1,173 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* clase del nombre Administrador */
+.user {
+    display: inline-block;
+
+    color: white;
+    padding: 9px 9px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 8px;
+    border-color: #5784E6;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+/* Para el menu de iconos cards*/
+.container{
+
+}
+
+.card {
+    margin: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    background-color: #e9ecef;
+}
+
+
+/* Estilos para el header */
+header {
+    background-color: #223B87;
+    color: #fff;
+    /*padding: 0px 8px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    content: " ";
+    position: absolute;
+    right: 93%;
+    z-index: 1;
+    top: 85%;
+
+}
+
+.img-menu{
+    padding: 0;
+}
+
+.menu-toggle {
+    display: none; /* Ocultar por defecto en pantallas grandes */
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+}
+
+
+
+.logout-button {
+
+    display: inline-block;
+    background-color: #5784E6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-color: #5784E6;
+
+}
+
+.logout-button:hover{
+    background-color: #57B6E6;
+}
+
+/* Estilos para el menú desplegable */
+.menu {
+    position: absolute;
+    top: 60px; /* Ajusta la posición del menú desplegable según sea necesario */
+
+    background-color: #223B87;
+    color: #fff;
+    padding: 0 10px;
+    z-index: 1000;
+    display: none; /* Ocultar por defecto */
+}
+
+.menu a:hover{
+    background-color: #5784E6;
+}
+
+.show-menu{
+    display: block;
+}
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: flex;
+}
+
+.footer{
+    margin-top: 3%;
+
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: none; /* Ocultar el input para hamburguesa en pantallas pequeñas */
+    }
+
+    .menu-icon {
+        display: block; /* Mostrar el ícono de hamburguesa en pantallas pequeñas */
+        position: absolute;
+        top: 10px;
+        left: 200px;
+        font-size: 24px;
+    }
+
+    #menu-toggle:checked + .menu-icon {
+        color: #fff;
+    }
+
+    .menu {
+        position: absolute;
+        top: 60px; /* Ajusta la posición del menú desplegable según sea necesario */
+        left: 0;
+        width: 200px;
+        background-color: #223B87;
+        color: #fff;
+        padding: 10px;
+        z-index: 1000;
+        display: none;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu {
+        display: block; /* Mostrar el menú desplegable cuando está activo */
+    }
+
+    .menu a {
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .logout-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
