@@ -509,8 +509,7 @@ m79 -327 c133 -58 209 -95 203 -101 -6 -6 -87 0 -216 16 -113 14 -212 24 -220
             </div>
             </a>
         </div>
-        <div class="container">
-            <div class="row">
+
                 <div class="col-md-6 col-lg-4">
                     <div class="card">
                         <a href="gestionarDivision.jsp">
@@ -563,12 +562,10 @@ m-357 -364 l81 -37 0 -178 0 -179 -105 52 -105 53 0 172 0 173 24 -10 c13 -5
                                     <center>Gestionar Divisiones</center>
                                 </h5>
                                 <p class="card-text">
-                                <center>Permite administrar a los administrar en el sistema.</center>
+                                <center>Permite administrar divisiones en el sistema.</center>
                                 </p>
                             </div>
                         </a>
-                    </div>
-                </div>
     </div>
 </div>
 
