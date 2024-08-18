@@ -8,6 +8,8 @@ public class Usuario_has_Materia {
     private String nombreDocente;
     private String nombreMateria;
 
+
+
     public Usuario_has_Materia(int id_asignacion,int usuario_id_usuario, int materia_id_materia) {
         this.id_asignacion = id_asignacion;
         this.usuario_id_usuario = usuario_id_usuario;

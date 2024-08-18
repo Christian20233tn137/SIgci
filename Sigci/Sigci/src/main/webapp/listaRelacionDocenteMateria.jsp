@@ -53,7 +53,7 @@
         <%= nombre %>
     </div>
     <div class="house">
-        <a class="volver1" href="gestionarDoc.jsp">
+        <a class="volver1" href="menuDocppal.jsp">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                  width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
                  preserveAspectRatio="xMidYMid meet">
@@ -94,18 +94,18 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
         <tbody>
         <%
             // Obtenemos la lista de usuarios
-            ArrayList<Usuario_has_Materia> usuario_has_materia = (ArrayList <Usuario_has_Materia>) request.getAttribute("usuario_has_materia");
+            ArrayList<Usuario_has_Materia> usuario_has_materia = (ArrayList <Usuario_has_Materia>) request.getAttribute("usuario_has_materiaa");
             if (usuario_has_materia != null && !usuario_has_materia.isEmpty()){
                 for(Usuario_has_Materia um : usuario_has_materia){ %>
         <tr>
             <td><%=um.getNombreDocente()%></td>
             <td><%=um.getNombreMateria()%></td>
-
         </tr>
         <% }} %>
         </tbody>
     </table>
 </center>
+
 <footer class=logo><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                         width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
                         preserveAspectRatio="xMidYMid meet">

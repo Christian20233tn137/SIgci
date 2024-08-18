@@ -18,7 +18,7 @@
 <body>
 <%
     User u = (User) session.getAttribute("user");
-    if(u != null){
+    if (u != null) {
         String nombre = u.getNombre() + " " + u.getApellidos();
         request.setAttribute("nombre", nombre);
 %>
@@ -84,14 +84,15 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <br>
 <div class="container mt-3">
     <div class="row">
-<div class="col-12 d-flex justify-content-start">
-    <label ><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                 width="40.000000pt" height="30.000000pt" viewBox="0 0 512.000000 512.000000"
-                 preserveAspectRatio="xMidYMid meet">
+        <div class="col-12 d-flex justify-content-start">
+            <label>
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                     width="40.000000pt" height="30.000000pt" viewBox="0 0 512.000000 512.000000"
+                     preserveAspectRatio="xMidYMid meet">
 
-        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-           fill="#5784E6" stroke="none">
-            <path d="M2321 5110 c-868 -84 -1644 -610 -2037 -1382 -139 -273 -221 -536
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                       fill="#5784E6" stroke="none">
+                        <path d="M2321 5110 c-868 -84 -1644 -610 -2037 -1382 -139 -273 -221 -536
 -266 -853 -20 -140 -17 -504 6 -660 39 -278 121 -541 247 -794 249 -502 647
 -900 1150 -1150 815 -406 1779 -350 2539 147 297 194 579 482 771 788 74 116
 184 342 234 478 51 138 110 376 131 531 23 157 26 521 6 660 -59 415 -191 769
@@ -101,41 +102,44 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 -50 -34 c-113 -79 -285 -150 -442 -181 -121 -24 -349 -23 -463 1 -257 54 -453
 159 -636 341 -244 242 -364 531 -364 876 0 393 184 754 504 992 148 109 366
 199 552 226 99 14 275 12 375 -5z"/>
-            <path d="M2096 3644 c-294 -65 -531 -278 -625 -560 -108 -323 -25 -656 222
+                        <path d="M2096 3644 c-294 -65 -531 -278 -625 -560 -108 -323 -25 -656 222
 -890 253 -241 628 -302 943 -155 234 109 408 323 471 577 25 103 22 305 -5
 408 -80 291 -307 524 -594 607 -98 28 -313 35 -412 13z"/>
-        </g>
-    </svg></label>
-    <input class="form-control"  id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
-</div>
+                    </g>
+                </svg>
+            </label>
+            <input class="form-control" id="searchTerm" type="text" onkeyup="doSearch() " placeholder="Buscar...">
+        </div>
     </div>
 </div>
 <br>
 <center>
-<table id="descripcion">
-    <thead>
-    <tr>
-        <th>Descripcion</th>
-        <th>Actualizar</th>
-        <th>Eliminar</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-        // Obtenemos la lista de usuarios
-        List<Grupo> lista_grupo = (List <Grupo>) request.getAttribute("lista_grupo");
-        if (lista_grupo != null){
-            for(Grupo g : lista_grupo){ %>
-    <tr>
-        <td><%=g.getDescripcion()%> </td>
-        <td><a href="updateGrupo?id_grupo=<%=g.getId_grupo()%>">
-            <button class="styled-button"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                                width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
-                                                preserveAspectRatio="xMidYMid meet">
+    <table id="descripcion">
+        <thead>
+        <tr>
+            <th>Descripcion</th>
+            <th>Actualizar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            // Obtenemos la lista de usuarios
+            List<Grupo> lista_grupo = (List<Grupo>) request.getAttribute("lista_grupo");
+            if (lista_grupo != null) {
+                for (Grupo g : lista_grupo) { %>
+        <tr>
+            <td><%=g.getDescripcion()%>
+            </td>
+            <td><a href="updateGrupo?id_grupo=<%=g.getId_grupo()%>">
+                <button class="styled-button">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
+                         preserveAspectRatio="xMidYMid meet">
 
-                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                   fill="#2D882D" stroke="none">
-                    <path d="M2330 5109 c-604 -57 -1174 -329 -1596 -761 -168 -171 -270 -306
+                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                           fill="#2D882D" stroke="none">
+                            <path d="M2330 5109 c-604 -57 -1174 -329 -1596 -761 -168 -171 -270 -306
        -393 -520 -371 -644 -442 -1421 -194 -2113 130 -363 322 -673 587 -943 503
        -515 1208 -797 1921 -768 655 26 1246 281 1706 736 153 152 189 201 189 257
        l0 46 -242 244 c-319 320 -317 319 -450 169 -224 -253 -467 -416 -765 -516
@@ -146,18 +150,19 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
        7 25 11 302 11 809 0 864 1 847 -67 903 -41 33 -111 61 -155 61 -63 0 -103
        -31 -333 -261 -127 -126 -234 -229 -238 -229 -4 0 -52 38 -107 84 -533 448
        -1221 669 -1890 605z"/>
-                </g>
-            </svg></button>
-        </a></td> <!-- Funcionalidad de actualizar -->
-        <td><a onclick="return confirmDelete();" href="borrarGrupo?id_grupo=<%=g.getId_grupo()%>">
-            <button class="styled-button2">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                     width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
-                     preserveAspectRatio="xMidYMid meet">
+                        </g>
+                    </svg>
+                </button>
+            </a></td> <!-- Funcionalidad de actualizar -->
+            <td><a onclick="return confirmDelete();" href="borrarGrupo?id_grupo=<%=g.getId_grupo()%>">
+                <button class="styled-button2">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
+                         preserveAspectRatio="xMidYMid meet">
 
-                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                       fill="#C00000" stroke="none">
-                        <path d="M2563 5106 c-77 -25 -127 -64 -278 -215 l-149 -151 -96 95 c-132 129
+                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                           fill="#C00000" stroke="none">
+                            <path d="M2563 5106 c-77 -25 -127 -64 -278 -215 l-149 -151 -96 95 c-132 129
 -196 160 -330 160 -83 0 -103 -4 -160 -29 -59 -27 -96 -60 -378 -340 -173
 -171 -327 -329 -342 -352 -50 -71 -73 -157 -67 -249 7 -120 37 -177 152 -295
 52 -53 95 -100 95 -105 0 -6 -69 -80 -154 -165 -194 -194 -211 -224 -211 -360
@@ -174,20 +179,21 @@ c-92 93 -102 118 -71 177 16 30 560 574 591 591 28 15 61 14 93 -3z m694
 949 21 977 11 15 40 38 65 51 50 26 97 23 139 -7z m679 -8 c64 -49 61 -1 61
 -1015 0 -901 0 -923 -20 -963 -53 -110 -212 -111 -264 -1 -14 31 -16 127 -16
 966 0 1006 -3 956 53 1008 51 48 126 50 186 5z"/>
-                        <path d="M4200 4273 c-46 -8 -974 -283 -1012 -299 -64 -29 -117 -92 -139 -166
+                            <path d="M4200 4273 c-46 -8 -974 -283 -1012 -299 -64 -29 -117 -92 -139 -166
 l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
-                    </g>
-                </svg>
-            </button>
-        </a></td> <!-- Funcionalidad de borrar -->
-    </tr>
-    <% }} %>
-    </tbody>
-</table>
+                        </g>
+                    </svg>
+                </button>
+            </a></td> <!-- Funcionalidad de borrar -->
+        </tr>
+        <% }
+        } %>
+        </tbody>
+    </table>
 </center>
 
 <%
-}else{
+} else {
 %>
 <style>
     .container-logout {
@@ -197,12 +203,15 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .container-logout h1 {
         color: #333;
     }
+
     .container-logout p {
         color: #666;
     }
+
     .container-logout a {
         display: inline-block;
         margin-top: 10px;
@@ -212,6 +221,7 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
         text-decoration: none;
         border-radius: 5px;
     }
+
     .container-logout a:hover {
         background-color: #0056b3;
     }
@@ -251,13 +261,14 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
     }
 %>
 
-<footer class="footer"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
-                            preserveAspectRatio="xMidYMid meet">
+<footer class="footer">
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+         width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
+         preserveAspectRatio="xMidYMid meet">
 
-    <g transform="translate(0.000000,317.000000) scale(0.100000,-0.100000)"
-       fill="#000000" stroke="none">
-        <path d="M1287 3086 c-57 -21 -112 -61 -136 -99 -18 -30 -28 -35 -70 -40 -102
+        <g transform="translate(0.000000,317.000000) scale(0.100000,-0.100000)"
+           fill="#000000" stroke="none">
+            <path d="M1287 3086 c-57 -21 -112 -61 -136 -99 -18 -30 -28 -35 -70 -40 -102
    -12 -197 -91 -225 -188 -9 -29 -16 -57 -16 -63 0 -7 -25 -11 -62 -11 -105 -1
    -192 -55 -239 -148 -25 -49 -36 -143 -21 -186 10 -29 8 -34 -37 -79 -156 -156
    -157 -399 -2 -566 40 -43 47 -55 40 -76 -23 -80 0 -182 58 -249 49 -58 103
@@ -293,35 +304,35 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
    30 -74 30 -10 0 -13 51 -13 270 0 286 -2 277 48 264z m4 -719 c92 -62 122
    -200 66 -296 -23 -39 -90 -99 -111 -99 -4 0 -7 95 -7 210 0 116 3 210 8 210 4
    0 24 -11 44 -25z"/>
-        <path d="M1202 2527 c-6 -6 -13 -24 -17 -39 -8 -32 -31 -53 -67 -62 -64 -15
+            <path d="M1202 2527 c-6 -6 -13 -24 -17 -39 -8 -32 -31 -53 -67 -62 -64 -15
    -56 -86 10 -86 73 0 142 68 142 141 0 52 -40 80 -68 46z"/>
-        <path d="M758 2380 c-21 -13 -24 -50 -6 -68 7 -7 23 -12 35 -12 59 0 102 -48
+            <path d="M758 2380 c-21 -13 -24 -50 -6 -68 7 -7 23 -12 35 -12 59 0 102 -48
    94 -105 -4 -29 -41 -65 -66 -65 -35 0 -57 -23 -53 -55 3 -26 8 -30 37 -33 47
    -5 74 4 111 34 117 99 62 291 -90 309 -25 3 -53 1 -62 -5z"/>
-        <path d="M906 1850 c-22 -11 -48 -28 -59 -37 -30 -28 -64 -94 -72 -140 -9 -55
+            <path d="M906 1850 c-22 -11 -48 -28 -59 -37 -30 -28 -64 -94 -72 -140 -9 -55
    7 -83 45 -83 24 0 31 5 36 28 3 15 10 43 15 63 13 52 70 99 122 99 26 0 57 28
    57 51 0 42 -77 52 -144 19z"/>
-        <path d="M1086 1641 c-23 -25 -12 -87 24 -145 60 -93 220 -131 220 -51 0 28
+            <path d="M1086 1641 c-23 -25 -12 -87 24 -145 60 -93 220 -131 220 -51 0 28
    -19 45 -50 45 -57 0 -120 67 -120 129 0 19 -26 41 -48 41 -5 0 -16 -8 -26 -19z"/>
-        <path d="M914 641 c-71 -44 -86 -120 -36 -171 27 -26 85 -50 123 -50 9 0 27
+            <path d="M914 641 c-71 -44 -86 -120 -36 -171 27 -26 85 -50 123 -50 9 0 27
    -8 40 -19 20 -16 21 -21 10 -35 -26 -31 -111 -12 -111 25 0 5 -22 9 -50 9 -44
    0 -50 -3 -50 -20 0 -88 121 -143 241 -110 78 22 111 105 67 170 -23 34 -52 49
    -136 70 -49 13 -64 36 -37 56 26 19 52 17 75 -6 14 -14 33 -20 65 -20 38 0 45
    3 45 20 0 11 -15 37 -34 57 -33 36 -37 38 -108 41 -59 2 -79 -1 -104 -17z"/>
-        <path d="M1210 459 l0 -200 53 3 52 3 3 198 2 197 -55 0 -55 0 0 -201z"/>
-        <path d="M1475 646 c-43 -18 -93 -79 -101 -121 -3 -20 -4 -62 -2 -95 7 -101
+            <path d="M1210 459 l0 -200 53 3 52 3 3 198 2 197 -55 0 -55 0 0 -201z"/>
+            <path d="M1475 646 c-43 -18 -93 -79 -101 -121 -3 -20 -4 -62 -2 -95 7 -101
    70 -160 178 -168 43 -2 65 2 100 20 54 28 77 66 86 141 l7 57 -92 0 -91 0 0
    -35 c0 -33 2 -35 35 -35 42 0 47 -22 10 -46 -32 -21 -89 -11 -110 19 -9 13
    -15 44 -15 80 0 48 4 62 25 82 30 31 77 33 105 5 24 -24 120 -29 120 -6 0 24
    -44 79 -80 97 -41 22 -130 25 -175 5z"/>
-        <path d="M1878 640 c-58 -31 -88 -91 -88 -177 0 -92 28 -147 90 -180 104 -55
+            <path d="M1878 640 c-58 -31 -88 -91 -88 -177 0 -92 28 -147 90 -180 104 -55
    246 -4 266 95 l7 32 -48 0 c-39 0 -52 -5 -75 -30 -48 -52 -111 -32 -130 40
    -30 111 71 202 132 120 19 -26 28 -30 70 -30 44 0 48 2 48 24 0 33 -39 86 -80
    107 -47 26 -142 25 -192 -1z"/>
-        <path d="M2202 463 l3 -198 53 -3 52 -3 0 200 0 201 -55 0 -55 0 2 -197z"/>
-    </g>
-</svg>
-    </footer>
+            <path d="M2202 463 l3 -198 53 -3 52 -3 0 200 0 201 -55 0 -55 0 2 -197z"/>
+        </g>
+    </svg>
+</footer>
 <script>
     function confirmDelete() {
         return confirm("¿Estás seguro de que deseas eliminar este registro?");

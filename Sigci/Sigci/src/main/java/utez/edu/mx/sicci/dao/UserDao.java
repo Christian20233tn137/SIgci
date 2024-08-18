@@ -25,7 +25,13 @@ public class UserDao {
 
     private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
-    private static final String SELECT_DOCENTE_MATERIA_BY_ID = "SELECT CONCAT(u.nombre, ' ', u.apellidos) AS nombre_completo, m.nombre_materia AS nombre , u.id_usuario , m.id_materia FROM usuario_has_materia um INNER JOIN usuario u ON um.usuario_id_usuario = u.id_usuario INNER JOIN materia m ON um.materia_id_materia = m.id_materia where usuario_id_usuario = ?";
+    private static final String SELECT_MATERIA_DOCENTE_BY_USER =
+            "SELECT CONCAT(u.nombre, ' ', u.apellidos) AS nombre_completo, " +
+                    "m.nombre_materia AS nombre, u.id_usuario, m.id_materia, id_asignacion " +
+                    "FROM usuario_has_materia um " +
+                    "INNER JOIN usuario u ON um.usuario_id_usuario = u.id_usuario " +
+                    "INNER JOIN materia m ON um.materia_id_materia = m.id_materia " +
+                    "WHERE u.id_usuario = ?";
 
     private static final String SELECT_ALL_MATERIA_DOCENTE = "SELECT CONCAT(u.nombre, ' ', u.apellidos) AS nombre_completo, m.nombre_materia AS nombre , u.id_usuario , m.id_materia, id_asignacion FROM usuario_has_materia um INNER JOIN usuario u ON um.usuario_id_usuario = u.id_usuario INNER JOIN materia m ON um.materia_id_materia = m.id_materia";
 
@@ -467,25 +473,30 @@ public class UserDao {
         return usuario_has_materia;
     }
 
-    public Usuario_has_Materia selectDocenteMateria(int usuario_id_usuario) {
-        Usuario_has_Materia usuario_has_materia = null;
-        try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(SELECT_DOCENTE_MATERIA_BY_ID)) {
-            ps.setInt(1, usuario_id_usuario);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                String nombreDocente = rs.getString("nombre_completo");
-                String nombreMateria = rs.getString("nombre");
-                int id_usuario = rs.getInt("id_usuario");
-                int materia_id_materia = rs.getInt("id_materia");
-                usuario_has_materia = new Usuario_has_Materia(id_usuario, materia_id_materia ,nombreDocente,nombreMateria );
+    public ArrayList<Usuario_has_Materia> getMateriasByUser(int userId) {
+        ArrayList<Usuario_has_Materia> usuario_has_materia = new ArrayList<>();
+        try (
+                Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement(SELECT_MATERIA_DOCENTE_BY_USER)
+        ) {
+            ps.setInt(1, userId); // Establecer el parámetro de la consulta
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) { // Iteramos cada fila resultado de la query
+                    Usuario_has_Materia um = new Usuario_has_Materia();
+                    um.setNombreDocente(rs.getString("nombre_completo"));
+                    um.setNombreMateria(rs.getString("nombre"));
+                    um.setUsuario_id_usuario(rs.getInt("id_usuario"));
+                    um.setMateria_id_materia(rs.getInt("id_materia"));
+                    um.setId_asignacion(rs.getInt("id_asignacion"));
+                    usuario_has_materia.add(um);
+                }
             }
         } catch (SQLException e) {
-            printSQLException(e);
+            e.printStackTrace();
         }
         return usuario_has_materia;
     }
+
 
     public boolean updateDocenteMateria(Usuario_has_Materia usuario_has_materia) throws SQLException {
         boolean flag;

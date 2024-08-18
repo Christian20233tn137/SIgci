@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import utez.edu.mx.sicci.dao.UserDao;
 import utez.edu.mx.sicci.model.User;
 import utez.edu.mx.sicci.model.Usuario_has_Materia;
@@ -26,10 +27,11 @@ public class GetListaMateriaDocenteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        List<Usuario_has_Materia> usuario_has_materia = userDao.getAllDocenteMateria();
-        req.setAttribute("usuario_has_materia", usuario_has_materia);
+        int userId = Integer.parseInt(req.getParameter("userId")); // Obtener el ID del usuario desde la solicitud
+        List<Usuario_has_Materia> usuario_has_materiaa = userDao.getMateriasByUser(userId);
+        req.setAttribute("usuario_has_materiaa", usuario_has_materiaa);
         RequestDispatcher rd = req.getRequestDispatcher("listaRelacionDocenteMateria.jsp");
-        rd.forward(req,resp);
+        rd.forward(req, resp);
     }
 }
+

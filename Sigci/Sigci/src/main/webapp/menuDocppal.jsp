@@ -5,6 +5,8 @@
     response.setDateHeader("Expires", 0); // Proxies.
 %>
 <%@ page import="utez.edu.mx.sicci.model.User" %>
+<%@ page import="utez.edu.mx.sicci.model.Usuario_has_Materia" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,7 +17,7 @@
 <body>
 <%
     User u = (User) session.getAttribute("user");
-    if(u != null){
+    if (u != null) {
 %>
 <header>
     <div class="user">
@@ -53,16 +55,16 @@
     <div class="row">
         <div class="col-md-6 col-lg-4">
             <a href="getListaEstadoAspirantes">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
-                             preserveAspectRatio="xMidYMid meet">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
+                                 preserveAspectRatio="xMidYMid meet">
 
-                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                               fill="#002DA0" stroke="none">
-                                <path d="M1740 4865 c-625 -200 -799 -259 -813 -277 -15 -18 -17 -31 -12 -68
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                   fill="#002DA0" stroke="none">
+                                    <path d="M1740 4865 c-625 -200 -799 -259 -813 -277 -15 -18 -17 -31 -12 -68
 4 -25 9 -172 11 -327 l5 -282 -26 -7 c-53 -13 -65 -45 -65 -172 0 -95 -10
 -175 -55 -438 -60 -348 -60 -357 -8 -391 23 -15 54 -19 204 -21 213 -4 252 3
 277 54 16 34 15 44 -36 347 -43 256 -53 333 -52 430 0 134 -11 168 -60 185
@@ -79,15 +81,15 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
 20 19 19 20 33 20 228 l0 209 253 43 c298 51 312 54 332 83 20 29 19 80 -3
 106 -13 17 -204 81 -817 277 -439 140 -808 254 -820 253 -11 0 -378 -115 -815
 -254z"/>
-                            </g>
-                        </svg>
-                        <center>Gestionar aspirantes</center>
-                    </h5>
-                    <p class="card-text">
-                    <center>Permite asignar aprobación a los aspirantes.</center>
-                    </p>
+                                </g>
+                            </svg>
+                            <center>Gestionar aspirantes</center>
+                        </h5>
+                        <p class="card-text">
+                        <center>Permite asignar aprobación a los aspirantes.</center>
+                        </p>
+                    </div>
                 </div>
-            </div>
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -168,50 +170,52 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
                 </div>
             </a>
         </div>
-        <div class="col-md-6 col-lg-4">
-            <a href="getListaMateriaDocente">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                 width="200.000000pt" height="75.000000pt" viewBox="0 0 200.000000 200.000000"
-                                 preserveAspectRatio="xMidYMid meet">
+    </div>
+    <div class="col-md-6 col-lg-4">
 
-                                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
-                                   fill="#002DA0" stroke="none">
-                                    <path d="M1022 1695 c-140 -39 -235 -175 -217 -309 10 -78 42 -142 96 -190
+        <a href="getListaMateriaDocente?userId=<%=u.getId_usuario()%>">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                             width="200.000000pt" height="75.000000pt" viewBox="0 0 200.000000 200.000000"
+                             preserveAspectRatio="xMidYMid meet">
+
+                            <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
+                               fill="#002DA0" stroke="none">
+                                <path d="M1022 1695 c-140 -39 -235 -175 -217 -309 10 -78 42 -142 96 -190
 143 -129 366 -86 457 89 38 74 38 178 -1 257 -61 124 -203 189 -335 153z"/>
-                                    <path d="M263 1219 c-8 -8 12 -80 73 -262 46 -138 83 -251 81 -252 -45 -23
+                                <path d="M263 1219 c-8 -8 12 -80 73 -262 46 -138 83 -251 81 -252 -45 -23
 -57 -38 -57 -71 0 -52 19 -120 41 -143 41 -43 152 -12 182 52 21 43 21 70 2
 107 -18 34 -62 60 -102 60 -28 0 -29 2 -112 253 -46 138 -86 255 -90 260 -4 4
 -12 2 -18 -4z"/>
-                                    <path d="M885 1016 c-214 -57 -375 -165 -375 -250 0 -9 15 -22 34 -30 38 -16
+                                <path d="M885 1016 c-214 -57 -375 -165 -375 -250 0 -9 15 -22 34 -30 38 -16
 80 -67 90 -109 10 -40 -11 -106 -44 -139 l-28 -28 229 0 229 0 0 210 0 210
 293 0 c326 1 318 -2 187 65 -130 66 -219 87 -380 91 -129 4 -155 2 -235 -20z"/>
-                                    <path d="M1080 574 l0 -254 126 0 c100 0 129 -3 141 -15 19 -19 111 -18 133 1
+                                <path d="M1080 574 l0 -254 126 0 c100 0 129 -3 141 -15 19 -19 111 -18 133 1
 11 9 55 14 140 16 l125 3 0 250 0 250 -332 2 -333 2 0 -255z m310 1 l0 -196
 -125 3 c-69 2 -125 6 -125 11 0 4 0 90 0 192 l0 185 125 0 125 0 0 -195z m300
 0 l0 -195 -130 0 -130 0 0 195 0 195 130 0 130 0 0 -195z"/>
-                                    <path d="M1490 655 c0 -12 14 -15 70 -15 56 0 70 3 70 15 0 12 -14 15 -70 15
+                                <path d="M1490 655 c0 -12 14 -15 70 -15 56 0 70 3 70 15 0 12 -14 15 -70 15
 -56 0 -70 -3 -70 -15z"/>
-                                    <path d="M1490 595 c0 -12 14 -15 70 -15 56 0 70 3 70 15 0 12 -14 15 -70 15
+                                <path d="M1490 595 c0 -12 14 -15 70 -15 56 0 70 3 70 15 0 12 -14 15 -70 15
 -56 0 -70 -3 -70 -15z"/>
-                                    <path d="M1490 534 c0 -12 10 -14 47 -12 66 4 70 28 4 28 -39 0 -51 -4 -51
+                                <path d="M1490 534 c0 -12 10 -14 47 -12 66 4 70 28 4 28 -39 0 -51 -4 -51
 -16z"/>
-                                </g>
-                            </svg>
+                            </g>
+                        </svg>
 
-                            <center>Ver Materias asignadas </center>
-                        </h5>
-                        <p class="card-text">
-                        <center>Podrá ver las materias asignadas</center>
-                        </p>
-                    </div>
+                        <center>Ver Materias asignadas</center>
+                    </h5>
+                    <p class="card-text">
+                    <center>Podrá ver las materias asignadas</center>
+                    </p>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
 </div>
+
 <footer class="logo">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          width="70.000000pt" height="60.000000pt" viewBox="0 0 277.000000 317.000000"
@@ -287,7 +291,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
 <script src="<%= request.getContextPath() %>/js/enlaces.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 <%
-}else{
+} else {
 %>
 <style>
     .container-logout {
@@ -297,12 +301,15 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .container-logout h1 {
         color: #333;
     }
+
     .container-logout p {
         color: #666;
     }
+
     .container-logout a {
         display: inline-block;
         margin-top: 10px;
@@ -312,6 +319,7 @@ l-30 11 0 261 0 262 27 -6 c35 -7 389 -66 397 -66 3 0 6 -94 6 -210 0 -197 1
         text-decoration: none;
         border-radius: 5px;
     }
+
     .container-logout a:hover {
         background-color: #0056b3;
     }
