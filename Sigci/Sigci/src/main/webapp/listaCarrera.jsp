@@ -90,6 +90,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
     <a class="logout-button" href="logout">Salir</a>
 </header>
 <br>
+<center><h2>Gestionar Carreras</h2></center>
 <div class="container mt-3">
     <div class="row">
         <div class="col-12 d-flex justify-content-start">
@@ -121,7 +122,6 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <br>
 
 <center>
-    <h2>Gestionar Carreras</h2>
     <table id="listaCarrera">
     <thead>
     <tr>
