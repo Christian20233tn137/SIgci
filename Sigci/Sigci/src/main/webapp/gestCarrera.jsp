@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Menu carreras</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/gestionarMat.css">
 </head>

@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu materias</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/gestionarMat.css">
 </head>

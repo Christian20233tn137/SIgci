@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Resetear contraseña</title>
+    <title>Restablecer contraseña</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/resetPassword.css">
 </head>

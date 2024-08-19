@@ -24,7 +24,7 @@ public class RegistrarMateriasServlet extends HttpServlet {
 
         MateriaDao dao = new MateriaDao();
         if (dao.insert(materia)){
-            resp.sendRedirect("gestionarDoc.jsp");
+            resp.sendRedirect("gestionarMat.jsp");
         }else {
             HttpSession session = req.getSession();
             session.setAttribute("mensajaeError", "Puede que la materia ya haya sido registrada");

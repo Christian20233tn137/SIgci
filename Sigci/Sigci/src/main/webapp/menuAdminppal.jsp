@@ -452,10 +452,10 @@ c99 -100 116 -104 223 -56 79 36 87 53 87 197 l0 104 185 0 185 0 0 -118z"/>
                      10 4 0 7 9 7 20 0 22 -24 27 -50 10 -12 -8 -16 -3 -20 23 -5 35 -33 49 -44 22z"/>
                             </g>
                         </svg>
-                        <center>Restablecer contraseña</center>
+                        <center>Actualizar contraseña</center>
                     </h5>
                     <p class="card-text">
-                    <center>Permite al usuario restablecer su contraseña.</center>
+                    <center>Permite al usuario actualizar su contraseña.</center>
                     </p>
                 </div>
                 </a>
@@ -562,7 +562,7 @@ m-357 -364 l81 -37 0 -178 0 -179 -105 52 -105 53 0 172 0 173 24 -10 c13 -5
                                     <center>Gestionar Divisiones</center>
                                 </h5>
                                 <p class="card-text">
-                                <center>Permite administrar divisiones en el sistema.</center>
+                                <center>    Administra divisiones en el sistema.</center>
                                 </p>
                             </div>
                         </a>

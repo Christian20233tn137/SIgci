@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Docente</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <script src="https://kit.fontawesome.com/982c17546c.js" crossorigin="anonymous"></script>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
@@ -110,9 +111,9 @@
                     <div id="error-nombre_usuario" class="error-message"></div>
             </div>
             <br>
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-center align-items-center">
                 <label for="id_division" class="form-label">División:</label>
-                <select  class="form-select" name="id_division" id="id_division"  required>
+                <select class="form-control w-50" name="id_division" id="id_division"  required>
                     <%
                         List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
                         if (divisionList != null){
@@ -125,11 +126,10 @@
                     %>
                 </select>
             </div>
-
             <br>
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-center align-items-center">
                 <label for="id_grupo">Grupo:</label>
-                <select name="id_grupo" id="id_grupo" class="form-select" required>
+                <select class="form-control w-50" name="id_grupo" id="id_grupo"  required>
                     <%
                         List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
                         if (grupoList != null){
@@ -159,10 +159,10 @@
 
     <footer class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-             width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+             width="70.000000pt" height="60.000000pt" viewBox="0 0 173.000000 181.000000"
              preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
-               fill="#FFFFFF" stroke="none">
+               fill="#00000" stroke="none">
                 <path d="M643 1690 c-17 -10 -36 -28 -42 -38 -6 -11 -25 -22 -46 -25 -64 -10
 -125 -72 -125 -125 0 -16 -9 -20 -51 -24 -89 -9 -142 -69 -140 -162 0 -42 -4
 -58 -20 -72 -30 -27 -58 -87 -65 -137 -8 -57 10 -117 51 -171 28 -38 34 -53
@@ -214,7 +214,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
                 <path d="M630 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
                 <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
             </g>
-        </svg>Re
+        </svg>
     </footer>
 </div>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>

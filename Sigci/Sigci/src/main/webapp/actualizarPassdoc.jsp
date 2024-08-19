@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar contraseña de docente</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actContra.css" rel="stylesheet">
 </head>
@@ -74,7 +75,7 @@
             <br>
             <input type="hidden" name="email" value="${user.email}">
             <input type="hidden" name="tipo_usuario" value="${user.idtipo_usuario}">
-            <input class="enviar" type="submit" value="enviar">
+            <input class="enviar" type="submit" value="actualizar">
         </form>
     </div>
     <footer class="logo">

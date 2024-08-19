@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Grupos</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaGrupos.css" rel="stylesheet">
     <script src="<%= request.getContextPath() %>/js/Buscador.js"></script>

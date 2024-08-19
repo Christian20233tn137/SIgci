@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Recuperar Contraseña</title>
+    <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/recovery.css">
 </head>
