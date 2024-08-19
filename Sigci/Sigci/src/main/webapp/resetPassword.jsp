@@ -22,7 +22,13 @@
 
     <input  class="form-control"  type="email" name="email" placeholder="Ingresa tu correo">
     <br>
-    <input class="form-control"  type="password" name="password" placeholder="Ingresa nueva contraseña">
+
+    <input class="form-control"  type="password" name="password" id="password" placeholder="Ingresa nueva contraseña">
+    <div id="passwordError" style="color: red;"></div>
+    <br>
+
+    <input class="form-control"  type="password" name="newPassword" id="newPassword" placeholder="Confirmar contraseña">
+    <div id="newPasswordError" style="color: red;"></div>
     <br>
     <label>Código</label>
     <input class="form-control"  type="text" name="cody" placeholder="Ingresa el codigo">
@@ -90,5 +96,41 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         </g>
     </svg>
 </footer>
+<script>
+    const form = document.querySelector('form');
+    const password = document.getElementById('password');
+    const newPassword = document.getElementById('newPassword');
+    const passwordError = document.getElementById('passwordError');
+    const newPasswordError = document.getElementById('newPasswordError');
+
+    form.addEventListener('submit', function(event) {
+        let valid = true;
+        passwordError.textContent = '';
+        newPasswordError.textContent = '';
+
+        // Validación 1: Longitud mínima y al menos un número
+        const regex = /^(?=.*\d)[A-Za-z\d\W_]{8,}$/;
+        if (!regex.test(password.value)) {
+            passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres y contener al menos un número.';
+            valid = false;
+        }
+
+        // Validación 2: Prevenir espacios al inicio o al final
+        if (password.value.trim() !== password.value) {
+            passwordError.textContent = 'La contraseña no debe contener espacios al inicio o al final.';
+            valid = false;
+        }
+
+        // Validación 3: Comparar que ambas contraseñas coincidan
+        if (password.value !== newPassword.value) {
+            newPasswordError.textContent = 'Las contraseñas no coinciden.';
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault(); // Prevenir el envío del formulario si hay errores
+        }
+    });
+</script>
 </body>
 </html>
