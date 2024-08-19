@@ -19,9 +19,10 @@
     <h1>Ingresa los datos</h1>
     <br>
 <form action="reset-password" method="post">
-
+    <label>Correo</label>
     <input  class="form-control"  type="email" name="email" placeholder="Ingresa tu correo">
     <br>
+    <label>Contraseña</label>
     <input class="form-control"  type="password" name="password" placeholder="Ingresa nueva contraseña">
     <br>
     <label>Código</label>
