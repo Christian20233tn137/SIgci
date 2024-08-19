@@ -121,7 +121,8 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 <br>
 
 <center>
-<table id="listaCarrera">
+    <h2>Gestionar Carreras</h2>
+    <table id="listaCarrera">
     <thead>
     <tr>
         <th>Descripcion</th>

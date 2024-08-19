@@ -13,7 +13,7 @@
     <title>Gestionar Aspirantes</title>
     <link rel="icon" sizes="32x32" href="<%= request.getContextPath() %>/img/sigci.png" type="image/png">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/listaGrupos.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/listaAspirante.css" rel="stylesheet">
     <script src="<%= request.getContextPath() %>/js/statusAspirante.js"></script>
 </head>
 <body>

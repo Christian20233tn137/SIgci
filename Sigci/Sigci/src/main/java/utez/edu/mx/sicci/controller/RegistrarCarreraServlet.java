@@ -28,7 +28,7 @@ public class RegistrarCarreraServlet extends HttpServlet {
 
         CarreraDao dao = new CarreraDao();
         if (dao.insert(carrrera)){
-            resp.sendRedirect("menuAdminppal.jsp");
+            resp.sendRedirect("gestCarrera.jsp");
         }else {
             // La info no a sido insertada y regresa al formulario
             HttpSession session = req.getSession();

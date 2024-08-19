@@ -33,7 +33,7 @@ public class RegistrarUsuarioServlet extends HttpServlet {
             UserDao dao = new UserDao();
             if (dao.insert(user)) {
                 //respuesta hacia un jsp
-                resp.sendRedirect("getListaDocentes");
+                resp.sendRedirect("gestionarDoc");
             } else {
                 //la info no se insertó y regresa al formulario
                 HttpSession session = req.getSession();

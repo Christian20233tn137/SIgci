@@ -117,6 +117,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
 </div>
 <br>
 <center>
+    <h2>Gestionar Divisiones</h2>
     <table id="listaDivision">
         <thead>
         <tr>
