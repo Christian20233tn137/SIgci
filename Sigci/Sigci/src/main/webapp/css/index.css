@@ -1,24 +1,38 @@
 .circulomitad {
     width: 100%;
-    height: 50vh; /* 50% de la altura del viewport */
+    height: 40vh; /* 50% de la altura del viewport */
     background-color: white;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .circulomitad:before {
     content: "";
     display: block;
-    width: 200%; /* Doble del ancho del contenedor para asegurar que cubra toda la anchura */
+    width: 200%; /* Doble del ancho del contenedor */
     height: 200%;
     border-radius: 50%; /* Hacer el círculo */
     background-color: #5784E6;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 100%;
+    transform: translate(-50%, -50%); /* Desplazar para posicionar adecuadamente */
+    z-index: -1;
 }
 
+
+.carousel {
+    width: 50%;
+    height: 80%;
+    z-index: 1; /* Asegura que el carrusel esté por encima del círculo */
+}
+
+.carousel img {
+    border-radius: 15px;
+}
 .header {
     background-color: #5884E7;
     color: white;
@@ -37,6 +51,6 @@
     content: " ";
     position: absolute;
     z-index:1;
-    top: 80%;
+    top:78%;
 
 }

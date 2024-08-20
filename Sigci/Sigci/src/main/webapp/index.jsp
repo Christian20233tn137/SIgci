@@ -29,12 +29,41 @@
     <a href="getListaAspirantes" class="btn btn-outline-primary btn-custom">Soy Aspirante</a>
   </div>
 </div>
+<div  class="circulomitad">
 
+    <center><div id="carouselExampleIndicators" class="col-md-6 col-lg-4 carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="<%= request.getContextPath() %>/img/Img1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="<%= request.getContextPath() %>/img/Img2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="<%= request.getContextPath() %>/img/Img3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div></center>
 
-<div class="circulomitad">
-  <div>       <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                   width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
-                   preserveAspectRatio="xMidYMid meet">
+</div>
+
+<footer class="logo">
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+       width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"
+       preserveAspectRatio="xMidYMid meet">
 
     <g transform="translate(0.000000,181.000000) scale(0.100000,-0.100000)"
        fill="#000000" stroke="none">
@@ -89,8 +118,9 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
       <path d="M630 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
       <path d="M1200 210 l0 -110 30 0 30 0 0 110 0 110 -30 0 -30 0 0 -110z"/>
     </g>
-  </svg></div>
-</div>
+  </svg>
+</footer>
+
 
 
 
