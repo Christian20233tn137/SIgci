@@ -15,6 +15,8 @@
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/listaGrupos.css" rel="stylesheet">
     <script src="<%= request.getContextPath() %>/js/Buscador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 <%
@@ -156,7 +158,7 @@ l0 -508 339 0 c188 0 362 5 392 10 184 35 345 196 379 379 6 33 10 346 10 800
                     </svg>
                 </button>
             </a></td> <!-- Funcionalidad de actualizar -->
-            <td><a onclick="return confirmDelete();" href="borrarGrupo?id_grupo=<%=g.getId_grupo()%>">
+            <td><a onclick="confirmDelete(event, 1)" href="borrarGrupo?id_grupo=<%=g.getId_grupo()%>">
                 <button class="styled-button2">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="20.000000pt" height="20.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -265,9 +267,53 @@ l-8 -28 721 0 720 0 -4 163 c-3 178 -8 196 -70 258 -52 51 -144 83 -208 72z"/>
 
 
 <script>
-    function confirmDelete() {
-        return confirm("¿Estás seguro de que deseas eliminar este registro?");
+    function confirmDelete(event, id_grupo) {
+        event.preventDefault(); // Evita que se ejecute la acción predeterminada
+
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "No podrás revertir esto",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Realizar la solicitud para eliminar el registro
+                fetch(`borrarGrupo?id_grupo=${id_grupo}`, {
+                    method: 'GET',
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            Swal.fire(
+                                'Eliminado!',
+                                'El registro ha sido eliminado.',
+                                'success'
+                            );
+                            // Opcional: Eliminar la fila de la tabla después de la eliminación
+                            event.target.closest('tr').remove();
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                'No se pudo eliminar el registro.',
+                                'error'
+                            );
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire(
+                            'Error!',
+                            'Ocurrió un error al intentar eliminar el registro.',
+                            'error'
+                        );
+                    });
+            }
+        });
     }
+
 </script>
 </body>
 </html>
