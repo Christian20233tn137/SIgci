@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 public class DatabaseConnectionManager {
     private static final String JDBC_URL =
-            "jdbc:mysql://localhost:3306/sigci";
+            "jdbc:mysql://54.82.137.226";
     private static final String USERNAME =
-            "root"; 
+            "mugiwaras";
     private static final String PASSWORD =
-            "admin";
+            "&Utez2023";
     private static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource dataSource;
 
