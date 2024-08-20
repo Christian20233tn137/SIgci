@@ -4,6 +4,9 @@
     response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
     response.setDateHeader("Expires", 0); // Proxies.
 %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ page import="utez.edu.mx.sicci.model.User" %>
 <%@ page import="utez.edu.mx.sicci.model.Division" %>
 <%@ page import="java.util.List" %>
@@ -74,6 +77,11 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Docentes</h2></center>
         <br>
+        <c:if test="${not empty sessionScope.mensajeError}">
+            <p style="color: red;">${sessionScope.mensajeError}</p>
+            <!-- Eliminar el mensaje de error después de mostrarlo -->
+            <c:remove var="mensajeError" scope="session"/>
+        </c:if>
         <form class="form-group" action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post" onsubmit="return validarFormulario();">
 
             <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__nombre">

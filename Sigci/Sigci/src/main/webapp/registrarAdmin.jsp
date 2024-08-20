@@ -5,6 +5,7 @@
     response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
     response.setDateHeader("Expires", 0); // Proxies.
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -61,6 +62,14 @@
     <div class="col-md-6 col-lg-4 bg-light text-black p-4 rounded shadow my-custom-style">
         <center><h2>Registrar Administradores</h2></center>
         <br>
+
+        <!-- Mostrar mensaje de error usando JSTL -->
+        <c:if test="${not empty sessionScope.mensajeError}">
+            <p style="color: red;">${sessionScope.mensajeError}</p>
+            <!-- Eliminar el mensaje de error después de mostrarlo -->
+            <c:remove var="mensajeError" scope="session"/>
+        </c:if>
+
         <form class="form-group" action="registrarAdmin" id="FormLogin" name="registroUsuario" method="post">
             <div class="mb-3  d-flex justify-content-center align-items-center">
                 <label for="nombre">Nombre(s):</label>
@@ -100,6 +109,8 @@
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
+
+
 
             <input type="submit" class="registrar" value="Registrar">
         </form>
