@@ -80,7 +80,6 @@
         <input type="text" id="apellidos" name="apellidos" class="form-control" value="${user.apellidos}" required>
         <div id="error-apellidos" class="error-message"></div>
         <br>
-
         <label>Ingrese su correo: </label>
         <input type="email" id="email" name="email" class="form-control" value="${user.email}" required>
         <div id="error-email" class="error-message"></div>

@@ -84,44 +84,37 @@
         </c:if>
         <form class="form-group" action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post" onsubmit="return validarFormulario();">
 
-            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__nombre">
-                <label for="nombre">Nombre:</label>
+
+                <label>Nombre:</label>
                     <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe el nombre" required>
                     <div id="error-nombre" class="error-message"></div>
-            </div>
+                    <div class="formulario__grupo" id="grupo__nombre"> </div>
             <br>
-            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__apellidos">
-                <label for="apellidos">Apellidos:</label>
+
+                <label>Apellidos:</label>
                     <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Escribe el Apellido" required>
                     <div id="error-apellidos" class="error-message"></div>
-            </div>
+                     <div class="formulario__grupo" id="grupo__apellidos"></div>
             <br>
-            <div class="mb-3 d-flex justify-content-center align-items-cente">
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+
+                <label >Fecha de Nacimiento:</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="Fecha nacimiento" required>
-            </div>
             <br>
-            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__curp">
-                <label for="curp">CURP:</label>
+                <label>CURP:</label>
                     <input type="text" id="curp" name="curp" class="form-control" placeholder="Escribe CURP" required>
                     <div id="error-curp" class="error-message"></div>
-            </div>
             <br>
-            <div class="mb-3 d-flex justify-content-center align-items-center formulario__grupo" id="grupo__email">
-                <label for="email">Correo Electrónico:</label>
+                <label>Correo Electrónico:</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Correo institucional" required>
                     <div id="error-email" class="error-message"></div>
-            </div>
             <br>
-            <div class="mb-3 formulario__grupo" id="grupo__nombre_usuario">
-                <label for="nombre_usuario">Nombre de Usuario:</label>
+                <label>Nombre de Usuario:</label>
                     <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"  placeholder="Nombre de Usuario" required>
                     <div id="error-nombre_usuario" class="error-message"></div>
-            </div>
-            <br>
-            <div class="mb-3 d-flex justify-content-center align-items-center">
+                    <div class="formulario__grupo" id="grupo__nombre_usuario">
                 <label for="id_division" class="form-label">División:</label>
-                <select class="form-control w-50" name="id_division" id="id_division"  required>
+
+                <select class="form-select w-50" name="id_division" id="id_division"  required>
                     <%
                         List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
                         if (divisionList != null){
@@ -132,12 +125,11 @@
                             }
                         }
                     %>
+
                 </select>
-            </div>
-            <br>
-            <div class="mb-3 d-flex justify-content-center align-items-center">
-                <label for="id_grupo">Grupo:</label>
-                <select class="form-control w-50" name="id_grupo" id="id_grupo"  required>
+
+                <label for="id_grupo" class="form-label">Grupo:</label>
+                <select class="form-select w-50" name="id_grupo" id="id_grupo"  required>
                     <%
                         List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
                         if (grupoList != null){
@@ -149,20 +141,16 @@
                         }
                     %>
                 </select>
-            </div>
 
             <input type="hidden" value="porDefinir" name="estado_password" />
             <input type="hidden" value="provisional" name="password" />
             <input type="hidden" value="1" name="estado_usuario" />
 
-            <br>
-
-            <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <div class="formulario__grupo formulario__grupo-btn-enviar">  </div>
                 <input type="submit" class="registrar" value="Registrar">
-            </div>
+
+    </div>
         </form>
-
-
     </div>
 
     <footer class="logo">
