@@ -5,6 +5,7 @@
   Time: 10:05 p. m.
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,11 +19,15 @@
 <div class="login-box">
     <h1>Ingresa los datos</h1>
     <br>
+
+    <!-- Mostrar mensaje de error general -->
+
+
 <form action="reset-password" method="post">
     <label>Correo</label>
     <input  class="form-control"  type="email" name="email" placeholder="Ingresa tu correo">
     <br>
-<<<<<<< HEAD
+
 
     <input class="form-control"  type="password" name="password" id="password" placeholder="Ingresa nueva contraseña">
     <div id="passwordError" style="color: red;"></div>
@@ -30,10 +35,7 @@
 
     <input class="form-control"  type="password" name="newPassword" id="newPassword" placeholder="Confirmar contraseña">
     <div id="newPasswordError" style="color: red;"></div>
-=======
-    <label>Contraseña</label>
-    <input class="form-control"  type="password" name="password" placeholder="Ingresa nueva contraseña">
->>>>>>> 0d4f9a2430c4d9d5e90045636f9465ed67cdfe04
+
     <br>
     <label>Código</label>
     <input class="form-control"  type="text" name="cody" placeholder="Ingresa el codigo">

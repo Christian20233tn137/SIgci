@@ -23,6 +23,12 @@ public class ResetPasswordServlet extends HttpServlet {
         String newPassword = request.getParameter("password");
         String codigo = request.getParameter("cody");
 
+        // Validar que los parámetros no sean nulos
+        if (correo == null || newPassword == null || codigo == null) {
+            response.sendRedirect(request.getContextPath() + "/views/ResetPassword.jsp?error=missingParams");
+            return;
+        }
+
         try {
             boolean success = usuarioDao.resetPassword(correo, newPassword, codigo);
             if (success) {
@@ -31,8 +37,8 @@ public class ResetPasswordServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/views/ResetPassword.jsp?error=true");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log("Error al restablecer la contraseña", e);
+            response.sendRedirect(request.getContextPath() + "/views/ResetPassword.jsp?error=true");
         }
     }
 }
-
